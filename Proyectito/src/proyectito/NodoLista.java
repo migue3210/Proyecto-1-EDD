@@ -10,12 +10,13 @@ package proyectito;
  */
 public class NodoLista {
     private int id;
-
     private NodoLista next;
+    private int time_value;
     
     public NodoLista(int id) {
         this.id = id;
         this.next = null;
+        this.time_value = 0;
     }
 
     public int getId() {
@@ -30,5 +31,13 @@ public class NodoLista {
         this.next = next;
     }
 
-        
+    public int getTime_value() {
+        return time_value;
+    }
+
+    public void setTime_value(int time_value) {
+        this.time_value = time_value;
+    }
+
+    
 }

@@ -14,6 +14,7 @@ public class ListaClass {
     private int id;
     private int length;
     private NodoLista head;
+    
     public ListaClass(int id, String name) {
         this.length = 0;
         this.head = null;
@@ -80,8 +81,9 @@ public class ListaClass {
         }
     
     
-    public void insertBegin(int Element){
+    public void insertBegin(int Element, int value){
         NodoLista nodo = new NodoLista(Element);
+        nodo.setTime_value(value);
         
         if (isEmpty()){
             setHead(nodo);
@@ -106,8 +108,9 @@ public class ListaClass {
         length--;
     }
     
-    public void insertEnd(int Element){
+    public void insertEnd(int Element, int value){
         NodoLista nodo = new NodoLista(Element);
+        nodo.setTime_value(value);
         
         if (isEmpty()){
             setHead(nodo);
@@ -141,6 +144,7 @@ public class ListaClass {
             System.out.print(" [" + nodo.getId() + "]");
             nodo = (NodoLista) nodo.getNext();
         }
+        
     }
     
     public void InsertIndex(int Element, int index){
@@ -183,7 +187,7 @@ public class ListaClass {
     }
     }
     
-    public void DeleteId(int id){
+    public void deleteId(int id){
         
         NodoLista pointer = getHead();
         int index = 0;
@@ -194,6 +198,14 @@ public class ListaClass {
         }
         DeleteIndex(index);
         
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
     }
     
     }
