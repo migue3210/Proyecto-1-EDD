@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  * @author Miguel
  */
 public class TxtManager {
+
     public Grafo readText() {
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
@@ -43,17 +44,22 @@ public class TxtManager {
                             grafo.addUser(Integer.parseInt(user[0]), user[1]);
                         }
                     }
+                    String[] connections_split = fsplit[1].split("\n");
+                    for (int i = 0; i < connections_split.length; i++) {
+                        String[] conection = connections_split[i].split(", ");
+                            grafo.addConnection(Integer.parseInt(conection[0]),Integer.parseInt(conection[1]),Integer.parseInt(conection[2]) );
+                    }
                     grafo.printGrafo();
                 }
                 lector.close();
                 JOptionPane.showMessageDialog(null, "Lectura exitosa");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "No se seleccionó ningún documento txt");
             }
 
         } catch (Exception err) {
             System.out.println(err);
-            JOptionPane.showMessageDialog(null, "error al momento de leer los clientes.");
+            JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
         }
         return grafo;
     }
