@@ -17,12 +17,14 @@ import javax.swing.JOptionPane;
 public class TxtManager {
 
     public Grafo readText() {
+        Grafo grafo = new Grafo(1);
+
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
+        file.setDialogTitle("Abre un archivo txt");
         int result = file.showOpenDialog(null);
-        file.setDialogTitle("Open file");
         File txt = file.getSelectedFile();
-        Grafo grafo = new Grafo(1);
+        
         String line;
         String users_txt = "";
         BufferedReader lector;
@@ -39,15 +41,15 @@ public class TxtManager {
                     String[] fsplit = users_txt.split("Relaciones\n");
                     String[] users_split = fsplit[0].split("\n");
                     for (int i = 0; i < users_split.length; i++) {
-                        String[] user = users_split[i].split(", ");
+                        String[] user = users_split[i].split("(,|, )");
                         if (!users_split[i].equals("Usuarios")) {
                             grafo.addUser(Integer.parseInt(user[0]), user[1]);
                         }
                     }
                     String[] connections_split = fsplit[1].split("\n");
                     for (int i = 0; i < connections_split.length; i++) {
-                        String[] conection = connections_split[i].split(", ");
-                            grafo.addConnection(Integer.parseInt(conection[0]),Integer.parseInt(conection[1]),Integer.parseInt(conection[2]) );
+                        String[] conection = connections_split[i].split("(, |,)");
+                        grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                     }
                     grafo.printGrafo();
                 }
