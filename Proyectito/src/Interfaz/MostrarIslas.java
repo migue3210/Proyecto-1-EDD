@@ -30,6 +30,11 @@ public class MostrarIslas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        bfs = new javax.swing.JButton();
+        dfs = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        atras = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,6 +52,23 @@ public class MostrarIslas extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("quieres utilizar para ver las islas:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
+
+        bfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/bfs.png"))); // NOI18N
+        getContentPane().add(bfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 80));
+
+        dfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/DFS.png"))); // NOI18N
+        getContentPane().add(dfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 120, 80));
+
+        jLabel4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("ó");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+
+        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 190, 90));
+
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 20, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/islas_boolean.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -90,9 +112,14 @@ public class MostrarIslas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton atras;
+    private javax.swing.JButton bfs;
+    private javax.swing.JButton dfs;
+    private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
