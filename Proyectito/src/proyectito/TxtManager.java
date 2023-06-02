@@ -4,6 +4,7 @@
  */
 package proyectito;
 
+import DataStructures.Queue;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,7 +30,8 @@ public class TxtManager {
         this.txtFile = f;
     }
 
-    public Grafo readText(Grafo grafo) {
+    public Grafo readText() {
+        Grafo grafo = new Grafo(1);
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
@@ -85,6 +87,7 @@ public class TxtManager {
     }
 
     public void writeText(String nombreArchivo, Grafo grafo) {
+        Queue queue = new Queue();
         try {
             FileWriter w = new FileWriter(getTxtFile());
             BufferedWriter bw = new BufferedWriter(w);
@@ -97,6 +100,7 @@ public class TxtManager {
             for (int i = 0; i < grafo.getTotalusers(); i++) {
                 NodoLista nodo = grafo.getUserList()[i].getHead();
                 while (nodo != null) {
+                    
                     wr.append(grafo.getUserList()[i].getId() + ", " + nodo.getId() + ", " + nodo.getTime_value() + "\n");
                     nodo = (NodoLista) nodo.getNext();
                 }
