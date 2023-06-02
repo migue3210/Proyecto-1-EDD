@@ -61,7 +61,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         amigos = new javax.swing.JTextArea();
         eliminar = new javax.swing.JLabel();
-        num = new javax.swing.JTextField();
+        numid = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -98,12 +98,12 @@ public class Cliente_guardar extends javax.swing.JFrame {
         eliminar.setText("Inserte el ID de tu amigo:");
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
-        num.addActionListener(new java.awt.event.ActionListener() {
+        numid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numActionPerformed(evt);
+                numidActionPerformed(evt);
             }
         });
-        getContentPane().add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
+        getContentPane().add(numid, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
 
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/ok.png"))); // NOI18N
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +119,9 @@ public class Cliente_guardar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+    private void numidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numidActionPerformed
         
-    }//GEN-LAST:event_numActionPerformed
+    }//GEN-LAST:event_numidActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         Object cambio = "Inserte el ID de tu amigo:";
@@ -141,7 +141,19 @@ public class Cliente_guardar extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        Agregar_tiempo at = new Agregar_tiempo(this);
+        
+        Object cambio = "Inserte el ID de tu amigo:";
+        
+        if (cambio.equals(eliminar.getText()) ){
+            Agregar_tiempo at = new Agregar_tiempo(this);
+        }else{
+            int num = grafito.searchUser(Integer.parseInt(numid.getText()));
+            if (num== -1){
+                JOptionPane.showMessageDialog(null, "No existe una persona con este id: "+ numid.getText());
+            }else {
+           Amigo_eliminar2 ae = new Amigo_eliminar2(this);
+            ae.numeroidel(Integer.parseInt(numid.getText()));}
+        }
     }//GEN-LAST:event_okActionPerformed
 
     /**
@@ -189,7 +201,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField num;
+    private javax.swing.JTextField numid;
     private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }

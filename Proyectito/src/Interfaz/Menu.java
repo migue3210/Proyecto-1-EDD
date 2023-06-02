@@ -78,6 +78,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(agregar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 80));
 
         mostrar_grafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/mostrar_grafo.png"))); // NOI18N
+        mostrar_grafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_grafoActionPerformed(evt);
+            }
+        });
         getContentPane().add(mostrar_grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, 80));
 
         mostrar_islas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Mostrar_Islas.png"))); // NOI18N
@@ -133,6 +138,10 @@ public class Menu extends javax.swing.JFrame {
         TxtManager txt = new TxtManager();
         grafito = txt.readText();
     }//GEN-LAST:event_agregar_docActionPerformed
+
+    private void mostrar_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_grafoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrar_grafoActionPerformed
 
     /**
      * @param args the command line arguments

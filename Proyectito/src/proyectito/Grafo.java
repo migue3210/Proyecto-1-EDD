@@ -111,4 +111,9 @@ public class Grafo {
             
         }return ami;
     }
+    
+    public String amigoUser(int numito){
+        String user_name1 = UserList[numito].getName();
+        return user_name1;
+    }
 }

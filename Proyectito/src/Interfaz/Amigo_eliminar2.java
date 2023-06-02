@@ -5,17 +5,35 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Amigo_eliminar2 extends javax.swing.JFrame {
-
+    public static Cliente_guardar c1;
     /**
      * Creates new form Amigo_eliminar2
      */
-    public Amigo_eliminar2() {
+    public Amigo_eliminar2(Cliente_guardar c1) {
         initComponents();
+        this.c1 = c1;
+        c1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+        
+        
+        
+    }
+    
+    public void numeroidel(int numid){
+        id.setText(Integer.toString(numid));
+        usuario.setText(grafito.amigoUser(numid));
+        
+        
+        
     }
 
     /**
@@ -68,6 +86,11 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 100, 20));
 
         aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/aceptar4.png"))); // NOI18N
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 140, 60));
 
         rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/rechazar.png"))); // NOI18N
@@ -83,6 +106,10 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        
+    }//GEN-LAST:event_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +141,7 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Amigo_eliminar2().setVisible(true);
+                new Amigo_eliminar2(c1).setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
 import java.util.Random;
 
 /**
@@ -23,9 +24,14 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         
-//        Random aleatorio = new Random ();
-//
-//        int numero = aleatorio.nextInt (10);        
+        Random aleatorio = new Random ();
+        int numero = aleatorio.nextInt (1000);
+        int num = 1;
+        while (num != -1) {
+        numero = aleatorio.nextInt (1000);
+        num = grafito.searchUser(numero);}
+        
+        id.setText(Integer.toString(numero));
     }
 
     /**
