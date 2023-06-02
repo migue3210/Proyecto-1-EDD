@@ -5,17 +5,27 @@
  */
 package Interfaz;
 
+import java.util.Random;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Agregar_Amigo extends javax.swing.JFrame {
-
+    public static Menu m;
     /**
      * Creates new form Agregar_Amigo
      */
-    public Agregar_Amigo() {
+    public Agregar_Amigo(Menu m) {
         initComponents();
+        this.m = m;
+        m.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+//        Random aleatorio = new Random ();
+//
+//        int numero = aleatorio.nextInt (10);        
     }
 
     /**
@@ -30,9 +40,9 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Usuario = new javax.swing.JTextField();
+        usuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        Id = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
         agregar_amigo = new javax.swing.JButton();
         guardar = new javax.swing.JButton();
         atras = new javax.swing.JButton();
@@ -55,27 +65,47 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         jLabel3.setText("Crear Usuario:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
-        Usuario.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        getContentPane().add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 160, -1));
+        usuario.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("ID:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
-        Id.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        getContentPane().add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 60, 20));
+        id.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 60, 20));
 
         agregar_amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/BotonAgregarAmi.png"))); // NOI18N
+        agregar_amigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_amigoActionPerformed(evt);
+            }
+        });
         getContentPane().add(agregar_amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 180, 60));
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
         getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 190, 60));
 
         atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 170, 90));
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 20, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Agregar2.png"))); // NOI18N
@@ -83,6 +113,25 @@ public class Agregar_Amigo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        this.setVisible(false);
+        m.setVisible(true);
+    }//GEN-LAST:event_atrasActionPerformed
+
+    private void agregar_amigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_amigoActionPerformed
+        String el = "Inserte el ID de tu amigo:";
+        Cliente_guardar c1 = new Cliente_guardar(this);
+        c1.Eliminar(el);
+    }//GEN-LAST:event_agregar_amigoActionPerformed
+
+    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,22 +163,22 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_Amigo().setVisible(true);
+                new Agregar_Amigo(m).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Id;
-    private javax.swing.JTextField Usuario;
     private javax.swing.JButton agregar_amigo;
     private javax.swing.JButton atras;
     private javax.swing.JButton exit;
     private javax.swing.JButton guardar;
+    private javax.swing.JLabel id;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,12 +11,26 @@ package Interfaz;
  */
 public class Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Menu
+    public static Bienvenido20 b1;
+    
+     /* Creates new form Menu
      */
-    public Menu() {
+    public Menu(Bienvenido20 b1) {
         initComponents();
+        this.b1 = b1;
+        b1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
     }
+//    public Menu(Agregar_Amigo a) {
+//        
+//        this.a = a;
+//        a.setVisible(false);
+//        this.setVisible(true);
+//        this.setLocationRelativeTo(null);
+//        
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +62,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(agregar_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 180, 80));
 
         agregar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/botonUsuario.png"))); // NOI18N
+        agregar_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_usuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(agregar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 80));
 
         mostrar_grafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/mostrar_grafo.png"))); // NOI18N
@@ -60,9 +79,19 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(puentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 180, 80));
 
         eliminar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/eliminar_usuario.png"))); // NOI18N
+        eliminar_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminar_usuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(eliminar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 190, 90));
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 20, 20));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
@@ -75,6 +104,22 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void agregar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_usuarioActionPerformed
+       
+        Agregar_Amigo a1 = new Agregar_Amigo(this);
+    }//GEN-LAST:event_agregar_usuarioActionPerformed
+
+    private void eliminar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_usuarioActionPerformed
+        String el = "Inserte el ID de la persona que va a eliminar:";
+        Cliente_guardar c1= new Cliente_guardar(this);
+       c1.Eliminar(el);
+        
+    }//GEN-LAST:event_eliminar_usuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Menu(b1).setVisible(true);
             }
         });
     }

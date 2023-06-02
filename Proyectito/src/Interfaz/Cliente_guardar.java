@@ -5,17 +5,40 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Cliente_guardar extends javax.swing.JFrame {
-
+    public static Agregar_Amigo a1;
+    public static Menu m;
     /**
      * Creates new form Cliente_guardar
      */
-    public Cliente_guardar() {
+    public Cliente_guardar(Agregar_Amigo a1) {
         initComponents();
+        this.a1 = a1;
+        
+        a1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+    }
+    
+    public Cliente_guardar(Menu m) {
+        initComponents();
+        this.m = m;
+        
+        m.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+        
+    }
+    public void Eliminar(String el){
+        eliminar.setText(el);
+        eliminar.setFont(new java.awt.Font("Rockwell", 1, 12));
     }
 
     /**
@@ -32,7 +55,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         atras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        eliminar = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -44,9 +67,19 @@ public class Cliente_guardar extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 20, 20));
 
         atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 170, 80));
 
         jTextArea1.setColumns(20);
@@ -55,10 +88,10 @@ public class Cliente_guardar extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 200, 170));
 
-        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Inserte el ID de tu amigo:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
+        eliminar.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(0, 0, 0));
+        eliminar.setText("Inserte el ID de tu amigo:");
+        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +101,11 @@ public class Cliente_guardar extends javax.swing.JFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
 
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/ok.png"))); // NOI18N
+        ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okActionPerformed(evt);
+            }
+        });
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 30, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/amigos.png"))); // NOI18N
@@ -79,6 +117,27 @@ public class Cliente_guardar extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        Object cambio = "Inserte el ID de tu amigo:";
+        if (cambio.equals(eliminar.getText()) ){
+            a1.setVisible(true);
+            this.setVisible(false);
+        }else{
+            m.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
+    }//GEN-LAST:event_atrasActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
+
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
+        Agregar_tiempo at = new Agregar_tiempo(this);
+    }//GEN-LAST:event_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,16 +169,18 @@ public class Cliente_guardar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cliente_guardar().setVisible(true);
+                
+                new Cliente_guardar(a1).setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
+    private javax.swing.JLabel eliminar;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

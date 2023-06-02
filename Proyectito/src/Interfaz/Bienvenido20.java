@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import proyectito.TxtManager;
+
 /**
  *
  * @author Nicoll Pinzon
@@ -16,6 +18,9 @@ public class Bienvenido20 extends javax.swing.JFrame {
      */
     public Bienvenido20() {
         initComponents();
+        this.setVisible(true);
+       
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -65,6 +70,11 @@ public class Bienvenido20 extends javax.swing.JFrame {
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
         exit.setFocusable(false);
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 20, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Bienvenido.png"))); // NOI18N
@@ -74,8 +84,14 @@ public class Bienvenido20 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-        // TODO add your handling code here:
+        Menu m = new Menu(this);
+        TxtManager txt = new TxtManager();
+        txt.readText();
     }//GEN-LAST:event_continuarActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments

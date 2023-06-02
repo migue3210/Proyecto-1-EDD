@@ -53,6 +53,11 @@ public class AgregarDoc extends javax.swing.JFrame {
         getContentPane().add(archivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 300, 30));
 
         aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/aceptar4.png"))); // NOI18N
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 140, 60));
 
         rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/rechazar.png"))); // NOI18N
@@ -63,6 +68,10 @@ public class AgregarDoc extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
