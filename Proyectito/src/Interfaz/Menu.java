@@ -5,6 +5,9 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
+import proyectito.TxtManager;
+
 /**
  *
  * @author Nicoll Pinzon
@@ -59,6 +62,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         agregar_doc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/botonAgregar3.png"))); // NOI18N
+        agregar_doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_docActionPerformed(evt);
+            }
+        });
         getContentPane().add(agregar_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 180, 80));
 
         agregar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/botonUsuario.png"))); // NOI18N
@@ -70,6 +78,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(agregar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 80));
 
         mostrar_grafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/mostrar_grafo.png"))); // NOI18N
+        mostrar_grafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_grafoActionPerformed(evt);
+            }
+        });
         getContentPane().add(mostrar_grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, 80));
 
         mostrar_islas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Mostrar_Islas.png"))); // NOI18N
@@ -120,6 +133,19 @@ public class Menu extends javax.swing.JFrame {
        c1.Eliminar(el);
         
     }//GEN-LAST:event_eliminar_usuarioActionPerformed
+
+    public void nada(){
+        Amigo_eliminar2 ae = new Amigo_eliminar2(this);
+    }
+    
+    private void agregar_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_docActionPerformed
+        TxtManager txt = new TxtManager();
+        grafito = txt.readText();
+    }//GEN-LAST:event_agregar_docActionPerformed
+
+    private void mostrar_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_grafoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrar_grafoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,28 +20,22 @@ import javax.swing.JOptionPane;
  */
 public class TxtManager {
     private File txtFile;
-
-    public File getTxtFile() {
-        return txtFile;
-    }
-
-    public void setTxtFile(File f) {
-        this.txtFile = f;
-    }
-
-    public Grafo readText(Grafo grafo) {
-        JFileChooser file = new JFileChooser();
+    public Grafo readText() {
+        String verificar = "Comienzo";
+        Grafo grafo = new Grafo(1);
+        while (verificar != "Lectura exitosa"){
+            JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
         int result = file.showOpenDialog(null);
         File txt = file.getSelectedFile();
         setTxtFile(txt);
 
-        String line;
-        String users_txt = "";
-        BufferedReader lector;
+            String line;
+            String users_txt = "";
+            BufferedReader lector;
 
-        try {
+            try {
             if (result == JFileChooser.APPROVE_OPTION) {
                 if (!grafo.isEmpty()) {
                     grafo.emptyGrafo();
@@ -70,18 +64,26 @@ public class TxtManager {
 //                    System.out.println("");
 //                    System.out.println("");
 //                    System.out.println("");
+verificar = "Lectura exitosa";
+                        JOptionPane.showMessageDialog(null, "Lectura exitosa");
+                         JOptionPane.showMessageDialog(null, "Lectura exitosa");
                 }
                 lector.close();
-                JOptionPane.showMessageDialog(null, "Lectura exitosa");
+               
             } else {
                 JOptionPane.showMessageDialog(null, "No se seleccionó ningún documento txt");
             }
+                    verificar = "No se seleccionó ningún documento txt";
+                }
 
-        } catch (Exception err) {
-            System.out.println(err);
-            JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
-        }
-        return grafo;
+            } catch (Exception err) {
+                System.out.println(err);
+                JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
+                verificar = "No se seleccionó ningún documento txt";
+            }
+            
+        
+        }return grafo;
     }
 
     public void writeText(String nombreArchivo, Grafo grafo) {

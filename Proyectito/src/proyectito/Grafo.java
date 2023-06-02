@@ -221,4 +221,18 @@ public class Grafo {
         
     }
     
+    
+    public String amigoGrafo() {
+        String ami = "";
+        for (int i = 0; i < totalusers; i++) {
+            ami += "User: " + UserList[i].getName() + " [" + Integer.toString(UserList[i].getId()) + "]\n";
+
+            
+        }return ami;
+    }
+    
+    public String amigoUser(int numito){
+        String user_name1 = UserList[numito].getName();
+        return user_name1;
+    }
 }

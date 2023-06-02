@@ -5,6 +5,7 @@
 package proyectito;
 
 import javax.swing.JOptionPane;
+import Interfaz.Bienvenido20;
 
 /**
  *
@@ -13,10 +14,21 @@ import javax.swing.JOptionPane;
  * @author Nicoll Pinzón
  */
 public class Main {
+    
 
     public static void main(String[] args) {
         Grafo grafo = new Grafo(1);
         TxtManager txt = new TxtManager();
+
+        Bienvenido20 bn = new Bienvenido20();
+//        TxtManager txt = new TxtManager();
+//        grafito = txt.readText();
+//        Bienvenido20 bn = new Bienvenido20();
+//    grafo.addConnection(121, 254, 7);
+//        grafo.printGrafo();
+//    grafo.deleteConnection(121, 254);
+//        System.out.println("--------");
+//    grafo.printGrafo();
 
            
 //        grafo.emptyGrafo();
