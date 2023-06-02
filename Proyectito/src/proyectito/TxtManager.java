@@ -57,7 +57,7 @@ public class TxtManager {
                             String[] conection = connections_split[i].split("(, |,)");
                             grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                         }
-                        grafo.printGrafo();
+                        //grafo.printGrafo();
                         verificar = "Lectura exitosa";
                         JOptionPane.showMessageDialog(null, "Lectura exitosa");
 

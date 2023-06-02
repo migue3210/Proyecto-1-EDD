@@ -6,6 +6,7 @@
 package Interfaz;
 
 import static Interfaz.Bienvenido20.grafito;
+import proyectito.Mostrar_Grafo;
 import proyectito.TxtManager;
 
 /**
@@ -144,7 +145,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_agregar_docActionPerformed
 
     private void mostrar_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_grafoActionPerformed
-        // TODO add your handling code here:
+        Mostrar_Grafo np = new Mostrar_Grafo();
+         np.gafo();
     }//GEN-LAST:event_mostrar_grafoActionPerformed
 
     /**
