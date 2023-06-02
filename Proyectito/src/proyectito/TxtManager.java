@@ -5,8 +5,12 @@
 package proyectito;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -16,20 +20,27 @@ import javax.swing.JOptionPane;
  */
 public class TxtManager {
 
+    Grafo grafo = new Grafo(1);
+    private File txtFile;
+
+    public File getTxtFile() {
+        return txtFile;
+    }
+
+    public void setTxtFile(File f) {
+        this.txtFile = f;
+    }
+
     public Grafo readText() {
         String verificar = "Comienzo";
         Grafo grafo = new Grafo(1);
-        while (verificar != "Lectura exitosa"){
-            
-            
-
-
-
+        while (verificar != "Lectura exitosa") {
             JFileChooser file = new JFileChooser();
             file.setCurrentDirectory(new File("./test"));
             file.setDialogTitle("Abre un archivo txt");
             int result = file.showOpenDialog(null);
             File txt = file.getSelectedFile();
+            setTxtFile(txt);
 
             String line;
             String users_txt = "";
@@ -37,6 +48,9 @@ public class TxtManager {
 
             try {
                 if (result == JFileChooser.APPROVE_OPTION) {
+                    if (!grafo.isEmpty()) {
+                        grafo.emptyGrafo();
+                    }
                     lector = new BufferedReader(new FileReader(txt));
                     while ((line = lector.readLine()) != null) {
                         if (!line.isEmpty()) {
@@ -63,8 +77,7 @@ public class TxtManager {
 
                     }
                     lector.close();
-                    
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(null, "No se seleccionó ningún documento txt");
                     verificar = "No se seleccionó ningún documento txt";
@@ -75,8 +88,32 @@ public class TxtManager {
                 JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
                 verificar = "No se seleccionó ningún documento txt";
             }
-            
-        
-        }return grafo;
+
+        }
+        return grafo;
+    }
+
+    public void writeText(String nombreArchivo, Grafo grafo) {
+        try {
+            FileWriter w = new FileWriter(getTxtFile());
+            BufferedWriter bw = new BufferedWriter(w);
+            PrintWriter wr = new PrintWriter(bw);
+            wr.append("Usuarios\n");
+            for (int i = 0; i < grafo.getTotalusers(); i++) {
+                wr.append(grafo.getUserList()[i].getId() + ", " + grafo.getUserList()[i].getName() + "\n");
+            }
+            wr.append("Relaciones\n");
+            for (int i = 0; i < grafo.getTotalusers(); i++) {
+                NodoLista nodo = grafo.getUserList()[i].getHead();
+                while (nodo != null) {
+                    wr.append(grafo.getUserList()[i].getId() + ", " + nodo.getId() + ", " + nodo.getTime_value() + "\n");
+                    nodo = (NodoLista) nodo.getNext();
+                }
+            }
+            wr.close();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
