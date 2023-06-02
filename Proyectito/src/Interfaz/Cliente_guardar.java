@@ -149,30 +149,43 @@ public class Cliente_guardar extends javax.swing.JFrame {
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         
         Object cambio = "Inserte el ID de tu amigo:";
+        try{
         
-        
-        if (cambio.equals(eliminar.getText()) ){
-            
+        if (cambio == eliminar.getText() ){
+            try{
             int num = grafito.searchUser(Integer.parseInt(numid.getText()));
             if (num== -1){
                 JOptionPane.showMessageDialog(null, "No existe una persona con este id: "+ numid.getText());
             }else {
            Agregar_tiempo at = new Agregar_tiempo(this);
             }
+            }catch( Exception e ){
+                JOptionPane.showMessageDialog(null,"Error, no pusiste un numero");
+            }
             
             
         }else{
+            try{
             int num = grafito.searchUser(Integer.parseInt(numid.getText()));
             if (num== -1){
                 JOptionPane.showMessageDialog(null, "No existe una persona con este id: "+ numid.getText());
             }else {
            Amigo_eliminar2 ae = new Amigo_eliminar2(this);
             ae.numeroidel(Integer.parseInt(numid.getText()));}
+            }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, no pusiste un numero");}
+        }} catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error, no pusiste un numero");
+            
         }
     }//GEN-LAST:event_okActionPerformed
 
     public int numero_ami(){
-        return Integer.parseInt(numid.getText());
+        try{
+        return Integer.parseInt(numid.getText());}
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error, no pusiste un numero");
+        }return -1;
     }
     
     /**

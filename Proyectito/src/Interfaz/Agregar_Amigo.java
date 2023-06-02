@@ -143,10 +143,10 @@ public class Agregar_Amigo extends javax.swing.JFrame {
             if(-1 == grafito.searchUser(idUser())){
             grafito.addUser(idUser(), nameUser());}
             String el = "Inserte el ID de tu amigo:";
-        Agregar_tiempo at = new Agregar_tiempo(this);
-        Cliente_guardar c1 = new Cliente_guardar(this);
-        
-        c1.Eliminar(el);
+            
+            Cliente_guardar c1 = new Cliente_guardar(this);
+
+            c1.Eliminar(el);
           
         
       }else{

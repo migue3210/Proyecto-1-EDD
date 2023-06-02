@@ -17,9 +17,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Bienvenido20 bn = new Bienvenido20();
-//        TxtManager txt = new TxtManager();
-//        grafito = txt.readText();
+//        Bienvenido20 bn = new Bienvenido20();
+        TxtManager txt = new TxtManager();
+         txt.readText();
 //        Bienvenido20 bn = new Bienvenido20();
 //    grafo.addConnection(121, 254, 7);
 //        grafo.printGrafo();

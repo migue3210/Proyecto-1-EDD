@@ -5,6 +5,7 @@
  */
 package proyectito;
 
+import static Interfaz.Bienvenido20.grafito;
 import java.util.Iterator;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
@@ -22,30 +23,33 @@ import org.graphstream.graph.implementations.SingleGraph;
 public class Mostrar_Grafo {
     
 
-    public  class GraphExplore {
-        public static void main(String args[]) {
-                   System.setProperty("org.graphstream.ui", "swing");
-            Graph graph = new SingleGraph("Tutorial 1");
-            public void printGrafo() {
-        for (int i = 0; i < grafito.getTotalusers(); i++) {
-            System.out.println("User: " + UserList[i].getName() + " [" + UserList[i].getId() + "]");
+    
+        
+            System.setProperty("org.graphstream.ui", "swing");
+            Graph graph = new SingleGraph("Proyecto");
+            
+        for (int i = 0; i < grafito.totalusers; i++) {
+            graph.addNode(Integer.toString(grafito.UserList[i].getId()));
+            
 
-            System.out.print("Connections:");
-            UserList[i].printList();
-            System.out.println("");
+            
         }
-    }
-                Object nodo = graph.addNode("A");
-                graph.getNode("A").setAttribute("ui.label", nodo);
-		graph.addNode("B");
-		graph.addNode("C");
-		graph.addEdge("AB", "A", "B");
-		graph.addEdge("BC", "B", "C");
-		graph.addEdge("CA", "C", "A");
-            new GraphExplore();
+        for (int i = 0; i < grafito.totalusers; i++) {
+            
+            NodoLista nodo = grafito.UserList[i].getHead();
+            while (nodo != null){
+                
+            graph.addEdge(Integer.toString(nodo.getTime_value()), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));}
+            nodo = (NodoLista) nodo.getNext();}
+
+            
+        }
+    
+                
+            new Mostrar_Grafo();
         }
 
-        public GraphExplore() {
+        public Mostrar_Grafo() {
             Graph graph = new SingleGraph("tutorial 1");
            
             graph.setAttribute("ui.stylesheet", styleSheet);
@@ -55,21 +59,17 @@ public class Mostrar_Grafo {
             graph.setStrict(false);
             graph.display();
 
-            graph.addEdge("AB", "A", "B");
-            graph.getEdge("AB").setAttribute("ui.label", "1");
-            graph.getEdge("AB").setAttribute("ui.style", "text-size: 90px;");
-            graph.addEdge("BC", "B", "C");
-            graph.addEdge("CA", "C", "A");
-            graph.addEdge("AD", "A", "D");
-            graph.addEdge("DE", "D", "E");
-            graph.addEdge("DF", "D", "F");
-            graph.addEdge("EF", "E", "F");
-
+            
+            
+            int np = 0;
             for (Node node : graph) {
                 System.out.println(node.getId());
                 node.setAttribute("ui.label", node.getId());
                 node.setAttribute("ui.style", "text-size: 20px;");
                 node.setAttribute("ui.style", "size: 20px;");
+                graph.getEdge(np).setAttribute("ui.label", graph.getEdge(np));
+            graph.getEdge(np).setAttribute("ui.style", "text-size: 90px;");
+            np++;
                
               
             }
@@ -89,7 +89,7 @@ public class Mostrar_Grafo {
         }
 
         protected void sleep() {
-            try { Thread.sleep(10); } catch (Exception e) {}
+            try { Thread.sleep(15); } catch (Exception e) {}
             
         }
 
@@ -113,6 +113,6 @@ public class Mostrar_Grafo {
             "node.marked {" +
             "	text-size: 50px;" +
             "}";
-    }
+    
     
 }
