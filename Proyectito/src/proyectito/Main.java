@@ -18,9 +18,9 @@ public class Main {
 
     public static void main(String[] args) {
         Grafo grafo = new Grafo(1);
+//        Bienvenido20 bn = new Bienvenido20();
         TxtManager txt = new TxtManager();
 
-        Bienvenido20 bn = new Bienvenido20();
 //        TxtManager txt = new TxtManager();
 //        grafito = txt.readText();
 //        Bienvenido20 bn = new Bienvenido20();
