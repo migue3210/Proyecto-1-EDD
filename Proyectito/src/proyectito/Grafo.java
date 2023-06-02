@@ -6,12 +6,7 @@ package proyectito;
 
 
 /**
-               121, 254, 7
-               121, 909, 8
-               254,909,5
-               909, 893, 5
-
- *
+ * @author Carlos Marcano
  */
 
 public class Grafo {
@@ -19,6 +14,7 @@ public class Grafo {
     private int totalusers;
     private ListaClass[] UserList;
     private int size;
+
 
 
     public Grafo(int Totalusers) {
