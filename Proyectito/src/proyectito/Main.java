@@ -4,6 +4,8 @@
  */
 package proyectito;
 
+import Interfaz.Bienvenido20;
+
 /**
  *
  * @author Carlos Marcano
@@ -11,12 +13,14 @@ package proyectito;
  * @author Nicoll Pinzón
  */
 public class Main {
+    
 
     public static void main(String[] args) {
 
-
-        TxtManager txt = new TxtManager();
-        txt.readText();
+        Bienvenido20 bn = new Bienvenido20();
+//        TxtManager txt = new TxtManager();
+//        grafito = txt.readText();
+//        Bienvenido20 bn = new Bienvenido20();
 //    grafo.addConnection(121, 254, 7);
 //        grafo.printGrafo();
 //    grafo.deleteConnection(121, 254);

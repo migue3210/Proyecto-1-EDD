@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import proyectito.Grafo;
 import proyectito.TxtManager;
 
 /**
@@ -12,6 +13,7 @@ import proyectito.TxtManager;
  * @author Nicoll Pinzon
  */
 public class Bienvenido20 extends javax.swing.JFrame {
+    public static Grafo grafito;
 
     /**
      * Creates new form Mostrar_Grafo
@@ -55,7 +57,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("En este proyecto vamos a crear una solución, con lo visto en clase y con la \ninvestigación necesaria, para el siguiente problema planteado por el profesor \nAntonio Maximiliano:\nProblema\nEn el ámbito de los grafos, puede usted conseguirse con el término “Isla”, el \ncual indica la presencia de nodos que están agrupados, es decir, enlazados entre \nsí, pero aislados de otros conglomerados de nodos. Pueden entonces existir varias\n islas en un conjunto de datos que representan un grafo, es decir, al ser construida \nuna representación visual de los datos, se pueden identificar sub grafos que, entre \nsí, no están conectados. El concepto anterior puede ser utilizado para el análisis de \ndatos en las redes sociales. Si cada usuario es representado por un nodo y la\n relación de amistad entre los usuarios es representado por un arco (camino de un \nnodo a otro), entonces un investigador puede identificar grupos de usuarios que \nforman islas (subgrupos o comunidades). Su equipo de trabajo deberá desarrollar\n una aplicación en Java que reciba del usuario un conjunto de datos relativos a una \nred social y generar, tras su procesamiento, información relativa a los distintos \ngrupos existentes, si los hubiera. \n\nIntegrantes del equipo:\n- Carlos Marcano\n- Miguel Jimenez\n- Nicoll Pinzon\n");
+        jTextArea1.setText("En este proyecto vamos a crear una solución, con lo visto en clase y con la \ninvestigación necesaria, para el siguiente problema planteado por el profesor \nAntonio Maximiliano:\nProblema\nEn el ámbito de los grafos, puede usted conseguirse con el término “Isla”, el \ncual indica la presencia de nodos que están agrupados, es decir, enlazados entre \nsí, pero aislados de otros conglomerados de nodos. Pueden entonces existir varias\n islas en un conjunto de datos que representan un grafo, es decir, al ser construida \nuna representación visual de los datos, se pueden identificar sub grafos que, entre \nsí, no están conectados. El concepto anterior puede ser utilizado para el análisis de \ndatos en las redes sociales. Si cada usuario es representado por un nodo y la\n relación de amistad entre los usuarios es representado por un arco (camino de un \nnodo a otro), entonces un investigador puede identificar grupos de usuarios que \nforman islas (subgrupos o comunidades). Su equipo de trabajo deberá desarrollar\n una aplicación en Java que reciba del usuario un conjunto de datos relativos a una \nred social y generar, tras su procesamiento, información relativa a los distintos \ngrupos existentes, si los hubiera. \n\nDespues de darle continuar, va a tener que subir el archivo txt primero para que \npueda continuar con el programa.\n\nIntegrantes del equipo:\n- Carlos Marcano\n- Miguel Jimenez\n- Nicoll Pinzon\n");
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 560, 210));
@@ -85,8 +87,8 @@ public class Bienvenido20 extends javax.swing.JFrame {
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         Menu m = new Menu(this);
-        TxtManager txt = new TxtManager();
-        txt.readText();
+       TxtManager txt = new TxtManager();
+        grafito = txt.readText();
     }//GEN-LAST:event_continuarActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed

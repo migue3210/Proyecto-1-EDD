@@ -102,4 +102,13 @@ public class Grafo {
             System.out.println("");
         }
     }
+    
+    public String amigoGrafo() {
+        String ami = "";
+        for (int i = 0; i < totalusers; i++) {
+            ami += "User: " + UserList[i].getName() + " [" + Integer.toString(UserList[i].getId()) + "]\n";
+
+            
+        }return ami;
+    }
 }

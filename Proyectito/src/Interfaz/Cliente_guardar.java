@@ -5,7 +5,10 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
 import javax.swing.JOptionPane;
+import proyectito.Grafo;
+
 
 /**
  *
@@ -19,6 +22,8 @@ public class Cliente_guardar extends javax.swing.JFrame {
      */
     public Cliente_guardar(Agregar_Amigo a1) {
         initComponents();
+       
+        amigos.setText(grafito.amigoGrafo());
         this.a1 = a1;
         
         a1.setVisible(false);
@@ -29,7 +34,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
     public Cliente_guardar(Menu m) {
         initComponents();
         this.m = m;
-        
+        amigos.setText(grafito.amigoGrafo());
         m.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -54,9 +59,9 @@ public class Cliente_guardar extends javax.swing.JFrame {
         exit = new javax.swing.JButton();
         atras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        amigos = new javax.swing.JTextArea();
         eliminar = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        num = new javax.swing.JTextField();
         ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -82,9 +87,9 @@ public class Cliente_guardar extends javax.swing.JFrame {
         });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 170, 80));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        amigos.setColumns(20);
+        amigos.setRows(5);
+        jScrollPane1.setViewportView(amigos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 200, 170));
 
@@ -93,12 +98,12 @@ public class Cliente_guardar extends javax.swing.JFrame {
         eliminar.setText("Inserte el ID de tu amigo:");
         getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        num.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                numActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
+        getContentPane().add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
 
         ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/ok.png"))); // NOI18N
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -114,9 +119,9 @@ public class Cliente_guardar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+        
+    }//GEN-LAST:event_numActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         Object cambio = "Inserte el ID de tu amigo:";
@@ -177,14 +182,14 @@ public class Cliente_guardar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea amigos;
     private javax.swing.JButton atras;
     private javax.swing.JLabel eliminar;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField num;
     private javax.swing.JButton ok;
     // End of variables declaration//GEN-END:variables
 }
