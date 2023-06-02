@@ -29,24 +29,24 @@ public class Main {
         graph.clear();
         int id = 0;
 
-        for (int i = 0; i < grafito.totalusers; i++) {
-            graph.addNode(Integer.toString(grafito.UserList[i].getId()));
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
+            graph.addNode(Integer.toString(grafito.getUserList()[i].getId()));
         }
-        for (int i = 0; i < grafito.totalusers; i++) {
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
 
-            NodoLista nodo = grafito.UserList[i].getHead();
+            NodoLista nodo = grafito.getUserList()[i].getHead();
             while (nodo != null) {
                 int npb = 0;
                 if (id == 0){
-                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));
+                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                     id++;
                 }else{
-                    Object Node5 = Integer.toString(grafito.UserList[i].getId());
+                    Object Node5 = Integer.toString(grafito.getUserList()[i].getId());
                     Object Node7 = Integer.toString(nodo.getId());
                     while (npb < id - 1) {
                         if (graph.getEdge(Integer.toString(npb)).getNode1() == Node5 || graph.getEdge(Integer.toString(npb)).getNode0() == Node7) {
                             if (graph.getEdge(Integer.toString(npb)).getNode0() == Node5 || graph.getEdge(Integer.toString(npb)).getNode1() == Node7) {
-                                graph.addEdge(Integer.toString(id), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));
+                                graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                                 id++;
                             }
 

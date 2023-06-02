@@ -24,15 +24,15 @@ public class Mostrar_Grafo {
         System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
 
         Graph graph = new SingleGraph("Proyecto");
-        for (int i = 0; i < grafito.totalusers; i++) {
-            graph.addNode(Integer.toString(grafito.UserList[i].getId()));
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
+            graph.addNode(Integer.toString(grafito.getUserList()[i].getId()));
         }
-        for (int i = 0; i < grafito.totalusers; i++) {
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
 
-            NodoLista nodo = grafito.UserList[i].getHead();
+            NodoLista nodo = grafito.getUserList()[i].getHead();
             while (nodo != null) {
 
-                graph.addEdge(Integer.toString(nodo.getTime_value()), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));
+                graph.addEdge(Integer.toString(nodo.getTime_value()), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                 System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
                 nodo = (NodoLista) nodo.getNext();
 
@@ -51,25 +51,25 @@ public class Mostrar_Grafo {
         graph.display();
         int id = 0;
         int i = 0;
-        NodoLista nodo = grafito.UserList[i].getHead();
+        NodoLista nodo = grafito.getUserList()[i].getHead();
         while (nodo == null){
             i++;
-            nodo = grafito.UserList[i].getHead();}
-        while ( i < grafito.totalusers -1 && nodo !=null) {
+            nodo = grafito.getUserList()[i].getHead();}
+        while ( i < grafito.getTotalusers() -1 && nodo !=null) {
 
-            nodo = grafito.UserList[i].getHead();
+            nodo = grafito.getUserList()[i].getHead();
             while (nodo != null) {
                 int npb = 0;
                 if (id == 0) {
-                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));
+                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                     id++;
                 } else {
-                    Object Node5 = Integer.toString(grafito.UserList[i].getId());
+                    Object Node5 = Integer.toString(grafito.getUserList()[i].getId());
                     Object Node7 = Integer.toString(nodo.getId());
                     while (npb < id - 1) {
                         if (graph.getEdge(Integer.toString(npb)).getNode1() == Node5 || graph.getEdge(Integer.toString(npb)).getNode0() == Node7) {
                             if (graph.getEdge(Integer.toString(npb)).getNode0() == Node5 || graph.getEdge(Integer.toString(npb)).getNode1() == Node7) {
-                                graph.addEdge(Integer.toString(id), Integer.toString(grafito.UserList[i].getId()), Integer.toString(nodo.getId()));
+                                graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                                 id++;
                             }
 
@@ -86,12 +86,12 @@ public class Mostrar_Grafo {
                 
                 
 
-                for (int ino = 0; ino < grafito.totalusers; ino++) {
+                for (int ino = 0; ino < grafito.getTotalusers(); ino++) {
                     
-                    nodo = grafito.UserList[ino].getHead();
+                    nodo = grafito.getUserList()[ino].getHead();
                     while (nodo != null) {
-                    Object Node5 = Integer.toString(grafito.UserList[ino].getId());
-                    Object Node7 = Integer.toString(grafito.UserList[ino].getId());
+                    Object Node5 = Integer.toString(grafito.getUserList()[ino].getId());
+                    Object Node7 = Integer.toString(grafito.getUserList()[ino].getId());
                     if (graph.getEdge(Integer.toString(np)).getNode1() == Node5 || graph.getEdge(Integer.toString(np)).getNode0() == Node7) {
                         if (graph.getEdge(Integer.toString(np)).getNode0() == Node5 || graph.getEdge(Integer.toString(np)).getNode1() == Node7) {
                             graph.getEdge(Integer.toString(np)).setAttribute("ui.label", graph.getEdge(Integer.toString(nodo.getTime_value())));
@@ -116,7 +116,7 @@ public class Mostrar_Grafo {
                     }
 
                     
-                        explore(graph.getNode(Integer.toString(grafito.UserList[0].getId())));
+                        explore(graph.getNode(Integer.toString(grafito.getUserList()[0].getId())));
             
     }
 
