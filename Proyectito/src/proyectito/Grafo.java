@@ -178,7 +178,17 @@ public class Grafo {
     }
     
     
-
+    /*
+1. Initialize a boolean matrix of the same size as the given matrix to keep track of visited cells.
+2. Traverse the given matrix, and for each unvisited cell that is part of an island, perform BFS or 
+    DFS starting from that cell.
+3. In the BFS or DFS algorithm, enqueue or push the current cell and mark it as visited. Then, while
+    the queue or stack is not empty, dequeue or pop a cell and enqueue or push its unvisited neighbors 
+    that are part of the same island. Mark each of these neighbors as visited.
+4. After BFS or DFS is complete, increment the island count by 1.
+5. Repeat steps 2-4 until all unvisited cells have been processed.
+6. Return the total island count.
+    */
     public void recorridoAmplitud(int UserInicial){
         
         /*  Comenzamos seleccionando un nodo inicial y lo agregamos a la cola.
@@ -192,6 +202,7 @@ public class Grafo {
             es decir, en amplitud
         */
         boolean[] visitados = new boolean[getTotalusers()];
+        
         Queue cola = new Queue();
         int islas = 0;
         
@@ -210,16 +221,11 @@ public class Grafo {
             if (visitados[searchUser(user.getId())] == false){
                 cola.enqueue(UserList[UserInicial].getIndex(i));
             }
-            
-            
+            cola.print();
         }
-        
-        
-        
-        
-        
-        
     }
+    
+
     
     
     public String amigoGrafo() {
