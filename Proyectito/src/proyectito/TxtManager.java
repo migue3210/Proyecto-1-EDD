@@ -21,14 +21,6 @@ import javax.swing.JOptionPane;
 public class TxtManager {
 
     public Grafo readText(Grafo grafo) {
-//        esto
-        if (!grafo.isEmpty()) {
-            grafo.emptyGrafo();
-        } else {
-            System.out.println("Está vacio");
-        }
-//        esto
-
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
@@ -41,6 +33,9 @@ public class TxtManager {
 
         try {
             if (result == JFileChooser.APPROVE_OPTION) {
+                if (!grafo.isEmpty()) {
+                    grafo.emptyGrafo();
+                }
                 lector = new BufferedReader(new FileReader(txt));
                 while ((line = lector.readLine()) != null) {
                     if (!line.isEmpty()) {
@@ -92,11 +87,12 @@ public class TxtManager {
             }
             wr.append("Relaciones\n");
             for (int i = 0; i < grafo.getTotalusers(); i++) {
-//                grafo.UserList[i].printList();
-//                System.out.println("");
-
+                NodoLista nodo = grafo.getUserList()[i].getHead();
+                while (nodo != null) {
+                    wr.append(grafo.getUserList()[i].getId() + ", " + nodo.getId() + ", " + nodo.getTime_value() + "\n");
+                    nodo = (NodoLista) nodo.getNext();
+                }
             }
-
             wr.close();
             bw.close();
         } catch (IOException e) {

@@ -128,7 +128,7 @@ public class Grafo {
     
     
     public void emptyGrafo(){
-        ListaClass[] EmptyUserList = new ListaClass[0];
+        ListaClass[] EmptyUserList = new ListaClass[1];
         setUserList(EmptyUserList);
         setTotalusers(1);
         setSize(0);
