@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import proyectito.Grafo;
 import proyectito.TxtManager;
 
 /**
@@ -12,6 +13,7 @@ import proyectito.TxtManager;
  * @author Nicoll Pinzon
  */
 public class Bienvenido20 extends javax.swing.JFrame {
+    public static Grafo grafito;
 
     /**
      * Creates new form Mostrar_Grafo
@@ -86,7 +88,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         Menu m = new Menu(this);
         TxtManager txt = new TxtManager();
-        txt.readText();
+        grafito = txt.readText();
     }//GEN-LAST:event_continuarActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
