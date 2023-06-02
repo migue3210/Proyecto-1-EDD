@@ -62,6 +62,9 @@ public class Grafo {
     }
     
     public void addConnection (int IdUser, int IdConnection, int years_value) {
+        if (years_value <0){
+            System.out.println("Entrada erronea, la coneccion de dos usuarios no puede ser menor a 0");
+        }else{
     if (searchUser(IdUser) != -1 && searchUser(IdConnection) != -1){
         if (UserList[searchUser(IdUser)].searchElement(IdConnection)){
             System.out.println("Entrada erronea, el id " + IdUser + " y el id " + IdConnection + " ya estan conectados.");
@@ -71,6 +74,7 @@ public class Grafo {
         }
         
     }else{System.out.println("Entrada erronea, el id " + IdUser + " o el id " + IdConnection + " no existen en la base de datos actual.");}
+    }
     }
     
     public void deleteConnection (int IdUser, int IdConnection) {
