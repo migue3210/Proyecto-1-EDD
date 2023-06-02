@@ -6,7 +6,7 @@ package proyectito;
 
 /**
  *
- * @author Carlos Marcano
+ * @author Carlol
  */
 public class NodoLista {
     private int id;
