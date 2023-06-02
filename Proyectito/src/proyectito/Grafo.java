@@ -4,6 +4,7 @@
  */
 package proyectito;
 
+
 /**
                121, 254, 7
                121, 909, 8
@@ -12,11 +13,14 @@ package proyectito;
 
  *
  */
+
 public class Grafo {
- 
+
     int totalusers;
     ListaClass[] UserList;
     int size;
+
+
     public Grafo(int Totalusers) {
         this.totalusers = Totalusers;
         this.UserList = new ListaClass[Totalusers];
@@ -91,6 +95,7 @@ public class Grafo {
     public void printGrafo() { 
         for (int i = 0; i < totalusers; i++){
             System.out.println("User: " + UserList[i].getName() + " [" + UserList[i].getId() + "]");
+
             System.out.print("Connections:");
             UserList[i].printList();
             System.out.println("");
