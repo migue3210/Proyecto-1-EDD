@@ -4,7 +4,7 @@
  */
 package proyectito;
 import DataStructures.Queue;
-
+import DataStructures.Nodo;
 /**
  * @author Carlos Marcano
  */
@@ -178,47 +178,42 @@ public class Grafo {
     }
     
     
-
-    public void recorridoAmplitud(int UserInicial){
-        
-        /*  Comenzamos seleccionando un nodo inicial y lo agregamos a la cola.
-            Mientras la cola no esté vacía, realizamos lo siguiente:
-            Tomamos el primer nodo de la cola y lo marcamos como visitado.
-            i. Visitamos el nodo y realizamos las acciones necesarias (por ejemplo, imprimir el valor del nodo).
-            ii. Agregamos todos los nodos vecinos no visitados del nodo actual a la cola.
-        
-            Este proceso se repite hasta que no queden más nodos en la cola. 
-            La cola garantiza que los nodos se visiten en el orden en que se agregaron,
-            es decir, en amplitud
-        */
-        boolean[] visitados = new boolean[getTotalusers()];
+    
+    public void recorridoAmplitud(){
+        ListaClass visited = new ListaClass(-1,"VISITED");
         Queue cola = new Queue();
         int islas = 0;
+        int pointer = 0;
         
-        
-        visitados[UserInicial] = true;
-        /*
-        Aqui hace falta un while !queue.isEmpty(), pero no se aun donde ubicarlo, 
-        va a ir agregandole valores a la queue como hice ahi, y mientras no se quede
-        vacia mete mas valores que esten conectados entre si, si la lista se queda vacia es que completo el recorrido de una isla,
-        ahi se recorre la lista de visitados[], hasta hallar un elemento que aun no se haya visitado, se repite el proceso usando ese elemento como inicial con
-        recursividad creo
-        
-        */
-            for (int i = 0; i < UserList[UserInicial].getLength(); i++){
-            NodoLista user = UserList[UserInicial].getIndex(i);
-            if (visitados[searchUser(user.getId())] == false){
-                cola.enqueue(UserList[UserInicial].getIndex(i));
+        while (visited.getLength() != getSize()){
+            for (int i = 0; i < getSize(); i++){
+                pointer = UserList[i].getId();
+                if (!visited.searchElement(UserList[i].getId())){
+                    break;
+                }
+            }
+
+            cola.enqueue(pointer);
+            
+            while (!cola.isEmpty()){
+                Nodo HeadNode = cola.getHead();
+                int Id = (int) HeadNode.getElement();
+
+                for (int i = 0; i < UserList[searchUser(Id)].getLength(); i++){
+                    int temp = UserList[searchUser(Id)].getIndex(i).getId();
+                    if (!visited.searchElement(temp) && !cola.searchElement(temp)){
+                        cola.enqueue(temp);
+                    }
+                }
+                visited.insertBegin(Id, -1);
+                cola.dequeue();
             }
             
-            
+            islas++;
         }
-        
-        
-        
-        
-        
-        
+        System.out.println("Islas totales: "+ islas);
+
     }
+    
     
 }
