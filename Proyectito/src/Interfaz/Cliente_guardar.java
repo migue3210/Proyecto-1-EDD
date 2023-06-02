@@ -144,8 +144,17 @@ public class Cliente_guardar extends javax.swing.JFrame {
         
         Object cambio = "Inserte el ID de tu amigo:";
         
+        
         if (cambio.equals(eliminar.getText()) ){
-            Agregar_tiempo at = new Agregar_tiempo(this);
+            
+            int num = grafito.searchUser(Integer.parseInt(numid.getText()));
+            if (num== -1){
+                JOptionPane.showMessageDialog(null, "No existe una persona con este id: "+ numid.getText());
+            }else {
+           Agregar_tiempo at = new Agregar_tiempo(this);
+            }
+            
+            
         }else{
             int num = grafito.searchUser(Integer.parseInt(numid.getText()));
             if (num== -1){
@@ -156,6 +165,10 @@ public class Cliente_guardar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_okActionPerformed
 
+    public int numero_ami(){
+        return Integer.parseInt(numid.getText());
+    }
+    
     /**
      * @param args the command line arguments
      */

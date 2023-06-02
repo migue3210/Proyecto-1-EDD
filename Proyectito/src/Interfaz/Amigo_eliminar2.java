@@ -13,6 +13,7 @@ import static Interfaz.Bienvenido20.grafito;
  */
 public class Amigo_eliminar2 extends javax.swing.JFrame {
     public static Cliente_guardar c1;
+    public static Menu m;
     /**
      * Creates new form Amigo_eliminar2
      */
@@ -27,6 +28,12 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         
         
     }
+    public Amigo_eliminar2(Menu m) {
+        initComponents();
+    this.m = m;
+        m.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);}
     
     public void numeroidel(int numid){
         id.setText(Integer.toString(numid));
@@ -94,6 +101,11 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 140, 60));
 
         rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/rechazar.png"))); // NOI18N
+        rechazar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rechazarActionPerformed(evt);
+            }
+        });
         getContentPane().add(rechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 140, 60));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
@@ -108,8 +120,14 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        
+        grafito.delete ...evt;
     }//GEN-LAST:event_aceptarActionPerformed
+
+    private void rechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechazarActionPerformed
+        m.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_rechazarActionPerformed
 
     /**
      * @param args the command line arguments

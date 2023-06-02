@@ -5,12 +5,16 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+import static Interfaz.Bienvenido20.grafito;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Agregar_tiempo extends javax.swing.JFrame {
     public static Cliente_guardar c1;
+    public static Agregar_Amigo a1;
 
     /**
      * Creates new form Doc_guardar
@@ -19,6 +23,16 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         initComponents();
         this.c1 = c1;
         c1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+    }
+    
+    public Agregar_tiempo(Agregar_Amigo a1) {
+        initComponents();
+      
+        this.a1 = a1;
+        a1.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -53,6 +67,11 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 170, 60));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -76,10 +95,25 @@ public class Agregar_tiempo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+       int verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres guardar la coneccion?");
+        if (verdad == 0){
         c1.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);}
+        
     }//GEN-LAST:event_atrasActionPerformed
 
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        try{
+            int year = Integer.parseInt(years.getText());
+           int id_ami = c1.numero_ami();
+        grafito.addConnection(a1.idUser(),id_ami,year);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error, no es un numero");
+        }
+        
+    }//GEN-LAST:event_guardarActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -111,7 +145,7 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Agregar_tiempo(c1).setVisible(true);
+                new Agregar_tiempo(a1).setVisible(true);
             }
         });
     }

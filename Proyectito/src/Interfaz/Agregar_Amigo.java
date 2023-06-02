@@ -6,7 +6,9 @@
 package Interfaz;
 
 import static Interfaz.Bienvenido20.grafito;
+import static Interfaz.Guardcar_Usuario.a1;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +16,7 @@ import java.util.Random;
  */
 public class Agregar_Amigo extends javax.swing.JFrame {
     public static Menu m;
+    
     /**
      * Creates new form Agregar_Amigo
      */
@@ -96,6 +99,11 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         getContentPane().add(agregar_amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 180, 60));
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 190, 60));
 
         atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
@@ -130,15 +138,50 @@ public class Agregar_Amigo extends javax.swing.JFrame {
     }//GEN-LAST:event_atrasActionPerformed
 
     private void agregar_amigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_amigoActionPerformed
-        String el = "Inserte el ID de tu amigo:";
+        
+        if(usuario.getText() != ""){
+            if(-1 == grafito.searchUser(idUser())){
+            grafito.addUser(idUser(), nameUser());}
+            String el = "Inserte el ID de tu amigo:";
+        Agregar_tiempo at = new Agregar_tiempo(this);
         Cliente_guardar c1 = new Cliente_guardar(this);
+        
         c1.Eliminar(el);
+          
+        
+      }else{
+          JOptionPane.showMessageDialog(null,"Si quiere continuar creando el usuario, ponga un nombre de usuario");
+      }
+        
+       
     }//GEN-LAST:event_agregar_amigoActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
 
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+      
+        if(usuario.getText() != ""){
+          if(-1 == grafito.searchUser(idUser())){
+            grafito.addUser(idUser(), nameUser());}
+        Guardcar_Usuario gu = new Guardcar_Usuario(this);
+      }else{
+          JOptionPane.showMessageDialog(null,"Si quiere guardar los cambios hechos, ponga un nombre de usuario");
+      }
+    }//GEN-LAST:event_guardarActionPerformed
+
+    public int idUser(){
+        return Integer.parseInt(id.getText());
+    }
+    
+    public String nameUser(){
+         String user_name = "@";
+         user_name += usuario.getText();
+         
+        return user_name;
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -134,6 +134,10 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_eliminar_usuarioActionPerformed
 
+    public void nada(){
+        Amigo_eliminar2 ae = new Amigo_eliminar2(this);
+    }
+    
     private void agregar_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_docActionPerformed
         TxtManager txt = new TxtManager();
         grafito = txt.readText();
