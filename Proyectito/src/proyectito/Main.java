@@ -4,36 +4,40 @@
  */
 package proyectito;
 
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
- *             121, 254, 7
-               121, 909, 8
-               254,909,5
-               909, 893, 5
-               *
-               * 121, @Pepe_Gónzales
-               * 254, @StephaniaCominos
-               * 893, @caribu_sol
-               * 909, @obiwan123
- * @author Carlol
+ * @author Carlos Marcano
+ * @author Miguel Jiménez
+ * @author Nicoll Pinzón
  */
 public class Main {
 
     public static void main(String[] args) {
-        
-    Grafo grafo = new Grafo(4);
-    
-    grafo.addUser(121, "Pepe_Gónzales");
-    grafo.addUser(254, "StephaniaCominos");   
-    grafo.addUser(893, "caribu_sol");
-    grafo.addUser(909, "obiwan123");
-    grafo.addUser(69, "papadios69");
-     
-    grafo.addConnection(121, 254, 7);
-    grafo.printGrafo();
-    grafo.deleteConnection(121, 254);
-        System.out.println("--------");
-    grafo.printGrafo();
-    
-    }   
+        Grafo grafo = new Grafo(1);
+        Grafo grafo2 = new Grafo(1);
+
+        TxtManager txt = new TxtManager();
+        txt.readText(grafo);
+
+        while (true) {
+            String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
+            if ("1".equals(menu)) {
+                String name = JOptionPane.showInputDialog("Ingrese el nombre de usuario: ");
+                String id = JOptionPane.showInputDialog("Ingrese un id numérico: ");
+                grafo.addUser(Integer.parseInt(id), name);
+                grafo.printGrafo();
+            } else if ("2".equals(menu)) {
+                txt.writeText("test//users_1.txt",grafo);
+//                txt.readText(grafo2);
+            } else if ("3".equals(menu)) {
+                break;
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese un valor en el rango");
+            }
+        }
+
+    }
 }
