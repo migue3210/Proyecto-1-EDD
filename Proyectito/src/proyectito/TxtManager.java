@@ -5,8 +5,12 @@
 package proyectito;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -16,15 +20,13 @@ import javax.swing.JOptionPane;
  */
 public class TxtManager {
 
-    public Grafo readText() {
-        Grafo grafo = new Grafo(1);
-
+    public Grafo readText(Grafo grafo) {
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
         int result = file.showOpenDialog(null);
         File txt = file.getSelectedFile();
-        
+
         String line;
         String users_txt = "";
         BufferedReader lector;
@@ -64,5 +66,30 @@ public class TxtManager {
             JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
         }
         return grafo;
+    }
+
+    public void writeText(String nombreArchivo, Grafo grafo) {
+        File f;
+        f = new File(nombreArchivo);
+        try {
+            FileWriter w = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(w);
+            PrintWriter wr = new PrintWriter(bw);
+            wr.append("Usuarios\n");
+            for (int i = 0; i < grafo.totalusers; i++) {
+                wr.append(grafo.UserList[i].getId() + ", " + grafo.UserList[i].getName() + "\n");
+            }
+            wr.append("Relaciones\n");
+            for (int i = 0; i < grafo.totalusers; i++) {
+//                grafo.UserList[i].printList();
+//                System.out.println("");
+
+            }
+
+            wr.close();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }

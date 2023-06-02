@@ -4,6 +4,8 @@
  */
 package proyectito;
 
+import DataStructures.ListaClass;
+
 /**
  * 121, 254, 7 121, 909, 8 254,909,5 909, 893, 5
  *
@@ -101,5 +103,13 @@ public class Grafo {
             UserList[i].printList();
             System.out.println("");
         }
+    }
+
+    public void depthFirstSearch() {
+
+    }
+
+    public void breadthFirstSearch() {
+
     }
 }
