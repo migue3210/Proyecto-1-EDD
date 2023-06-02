@@ -6,7 +6,7 @@ package proyectito;
 
 /**
  *
- * @author Carlol
+ * @author Carlos Marcano
  */
 public class ListaClass {
     

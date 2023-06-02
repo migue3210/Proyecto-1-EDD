@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package proyectito;
-
+import DataStructures.Queue;
 
 /**
  * @author Carlos Marcano
@@ -88,8 +88,9 @@ public class Grafo {
            }
            UserList[searchUser(id)] = null;
 
-           
+          size--; 
        }
+       
     }
     
     public void addConnection (int IdUser, int IdConnection, int years_value) {
@@ -174,6 +175,50 @@ public class Grafo {
 
     public void setSize(int size) {
         this.size = size;
+    }
+    
+    
+
+    public void recorridoAmplitud(int UserInicial){
+        
+        /*  Comenzamos seleccionando un nodo inicial y lo agregamos a la cola.
+            Mientras la cola no esté vacía, realizamos lo siguiente:
+            Tomamos el primer nodo de la cola y lo marcamos como visitado.
+            i. Visitamos el nodo y realizamos las acciones necesarias (por ejemplo, imprimir el valor del nodo).
+            ii. Agregamos todos los nodos vecinos no visitados del nodo actual a la cola.
+        
+            Este proceso se repite hasta que no queden más nodos en la cola. 
+            La cola garantiza que los nodos se visiten en el orden en que se agregaron,
+            es decir, en amplitud
+        */
+        boolean[] visitados = new boolean[getTotalusers()];
+        Queue cola = new Queue();
+        int islas = 0;
+        
+        
+        visitados[UserInicial] = true;
+        /*
+        Aqui hace falta un while !queue.isEmpty(), pero no se aun donde ubicarlo, 
+        va a ir agregandole valores a la queue como hice ahi, y mientras no se quede
+        vacia mete mas valores que esten conectados entre si, si la lista se queda vacia es que completo el recorrido de una isla,
+        ahi se recorre la lista de visitados[], hasta hallar un elemento que aun no se haya visitado, se repite el proceso usando ese elemento como inicial con
+        recursividad creo
+        
+        */
+            for (int i = 0; i < UserList[UserInicial].getLength(); i++){
+            NodoLista user = UserList[UserInicial].getIndex(i);
+            if (visitados[searchUser(user.getId())] == false){
+                cola.enqueue(UserList[UserInicial].getIndex(i));
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
     }
     
 }
