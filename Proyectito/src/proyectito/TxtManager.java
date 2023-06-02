@@ -19,6 +19,15 @@ import javax.swing.JOptionPane;
  * @author Miguel Jimenez
  */
 public class TxtManager {
+    private File txtFile;
+
+    public File getTxtFile() {
+        return txtFile;
+    }
+
+    public void setTxtFile(File f) {
+        this.txtFile = f;
+    }
 
     public Grafo readText(Grafo grafo) {
         JFileChooser file = new JFileChooser();
@@ -26,6 +35,7 @@ public class TxtManager {
         file.setDialogTitle("Abre un archivo txt");
         int result = file.showOpenDialog(null);
         File txt = file.getSelectedFile();
+        setTxtFile(txt);
 
         String line;
         String users_txt = "";
@@ -56,10 +66,10 @@ public class TxtManager {
                         String[] conection = connections_split[i].split("(, |,)");
                         grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                     }
-                    grafo.printGrafo();
-                    System.out.println("");
-                    System.out.println("");
-                    System.out.println("");
+//                    grafo.printGrafo();
+//                    System.out.println("");
+//                    System.out.println("");
+//                    System.out.println("");
                 }
                 lector.close();
                 JOptionPane.showMessageDialog(null, "Lectura exitosa");
@@ -75,10 +85,8 @@ public class TxtManager {
     }
 
     public void writeText(String nombreArchivo, Grafo grafo) {
-        File f;
-        f = new File(nombreArchivo);
         try {
-            FileWriter w = new FileWriter(f);
+            FileWriter w = new FileWriter(getTxtFile());
             BufferedWriter bw = new BufferedWriter(w);
             PrintWriter wr = new PrintWriter(bw);
             wr.append("Usuarios\n");
