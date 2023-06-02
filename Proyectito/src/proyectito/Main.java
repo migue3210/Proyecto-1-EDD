@@ -18,10 +18,10 @@ public class Main {
     public static void main(String[] args) {
         Grafo grafo = new Grafo(1);
         Grafo grafo2 = new Grafo(1);
-
         TxtManager txt = new TxtManager();
         txt.readText(grafo);
-
+       
+        /*       
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
             if ("1".equals(menu)) {
@@ -37,7 +37,8 @@ public class Main {
             } else {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor en el rango");
             }
-        }
-
+        }       
+    */
+        
     }
 }

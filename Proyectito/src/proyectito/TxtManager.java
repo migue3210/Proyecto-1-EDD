@@ -76,11 +76,11 @@ public class TxtManager {
             BufferedWriter bw = new BufferedWriter(w);
             PrintWriter wr = new PrintWriter(bw);
             wr.append("Usuarios\n");
-            for (int i = 0; i < grafo.totalusers; i++) {
-                wr.append(grafo.UserList[i].getId() + ", " + grafo.UserList[i].getName() + "\n");
+            for (int i = 0; i < grafo.getTotalusers(); i++) {
+                wr.append(grafo.getUserList()[i].getId() + ", " + grafo.getUserList()[i].getName() + "\n");
             }
             wr.append("Relaciones\n");
-            for (int i = 0; i < grafo.totalusers; i++) {
+            for (int i = 0; i < grafo.getTotalusers(); i++) {
 //                grafo.UserList[i].printList();
 //                System.out.println("");
 
