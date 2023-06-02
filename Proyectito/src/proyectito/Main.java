@@ -19,11 +19,15 @@ public class Main {
         Grafo grafo = new Grafo(1);
         Grafo grafo2 = new Grafo(1);
         TxtManager txt = new TxtManager();
-        txt.readText(grafo);
 
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
-            if ("1".equals(menu)) {
+            if ("0".equals(menu)) {
+                
+
+                txt.readText(grafo);
+
+            } else if ("1".equals(menu)) {
                 String name = JOptionPane.showInputDialog("Ingrese el nombre de usuario: ");
                 String id = JOptionPane.showInputDialog("Ingrese un id numérico: ");
                 grafo.addUser(Integer.parseInt(id), name);

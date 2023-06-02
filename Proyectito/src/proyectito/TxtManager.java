@@ -21,6 +21,14 @@ import javax.swing.JOptionPane;
 public class TxtManager {
 
     public Grafo readText(Grafo grafo) {
+//        esto
+        if (!grafo.isEmpty()) {
+            grafo.emptyGrafo();
+        } else {
+            System.out.println("Está vacio");
+        }
+//        esto
+
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
@@ -54,6 +62,9 @@ public class TxtManager {
                         grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                     }
                     grafo.printGrafo();
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.println("");
                 }
                 lector.close();
                 JOptionPane.showMessageDialog(null, "Lectura exitosa");
