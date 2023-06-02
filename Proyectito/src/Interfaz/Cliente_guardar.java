@@ -126,11 +126,17 @@ public class Cliente_guardar extends javax.swing.JFrame {
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         Object cambio = "Inserte el ID de tu amigo:";
         if (cambio.equals(eliminar.getText()) ){
-            a1.setVisible(true);
-            this.setVisible(false);
+            int verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres continuar ?");
+        if (verdad == 0){
+        a1.setVisible(true);
+            this.setVisible(false);}
+          
         }else{
-            m.setVisible(true);
-            this.setVisible(false);
+            int verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres continuar ?");
+        if (verdad == 0){
+        m.setVisible(true);
+            this.setVisible(false);}
+            
         }
         
         

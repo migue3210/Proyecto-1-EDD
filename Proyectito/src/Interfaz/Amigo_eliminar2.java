@@ -120,7 +120,7 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        grafito.delete ...evt;
+//        grafito.delete ...evt;
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void rechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechazarActionPerformed

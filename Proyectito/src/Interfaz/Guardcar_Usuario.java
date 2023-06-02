@@ -86,7 +86,7 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void rechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechazarActionPerformed
-        grafito.delete user
+//        grafito.delete user
     }//GEN-LAST:event_rechazarActionPerformed
 
     /**
