@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Miguel
+ * @author Miguel Jimenez
  */
 public class TxtManager {
 
