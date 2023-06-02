@@ -18,7 +18,6 @@ public class Main {
     public static void main(String[] args) {
         Grafo grafo = new Grafo(1);
         Grafo grafo2 = new Grafo(1);
-
         TxtManager txt = new TxtManager();
         txt.readText(grafo);
 
@@ -30,7 +29,7 @@ public class Main {
                 grafo.addUser(Integer.parseInt(id), name);
                 grafo.printGrafo();
             } else if ("2".equals(menu)) {
-                txt.writeText("test//users_1.txt",grafo);
+                txt.writeText("test//users_1.txt", grafo);
 //                txt.readText(grafo2);
             } else if ("3".equals(menu)) {
                 break;
@@ -38,6 +37,5 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor en el rango");
             }
         }
-
     }
 }
