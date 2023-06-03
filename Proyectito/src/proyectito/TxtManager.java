@@ -69,9 +69,6 @@ public class TxtManager {
                         grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                     }
                     grafo.printGrafo();
-//                    System.out.println("");
-//                    System.out.println("");
-//                    System.out.println("");
                 }
                 lector.close();
                 JOptionPane.showMessageDialog(null, "Lectura exitosa");
@@ -86,8 +83,7 @@ public class TxtManager {
         return grafo;
     }
 
-    public void writeText(String nombreArchivo, Grafo grafo) {
-        Queue queue = new Queue();
+    public void writeText(Grafo grafo) {
         try {
             FileWriter w = new FileWriter(getTxtFile());
             BufferedWriter bw = new BufferedWriter(w);

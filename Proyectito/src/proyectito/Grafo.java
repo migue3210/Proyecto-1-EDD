@@ -10,6 +10,8 @@ import DataStructures.Stack;
 
 /**
  * @author Carlos Marcano
+ * @author Miguel Jimémez
+ * @author Nicoll Pinzón
  */
 public class Grafo {
 
@@ -184,7 +186,7 @@ public class Grafo {
         this.size = size;
     }
 
-    public void recorridoAmplitud() {
+    public int recorridoAmplitud() {
         ListaClass visited = new ListaClass(-1, "VISITED");
         Queue cola = new Queue();
         int islas = 0;
@@ -203,6 +205,7 @@ public class Grafo {
             while (!cola.isEmpty()) {
                 Nodo HeadNode = cola.getHead();
                 int Id = (int) HeadNode.getElement();
+//                System.out.println(Id);
 
                 for (int i = 0; i < UserList[searchUser(Id)].getLength(); i++) {
                     int temp = UserList[searchUser(Id)].getIndex(i).getId();
@@ -216,10 +219,11 @@ public class Grafo {
 
             islas++;
         }
-        System.out.println("Islas totales: " + islas);
+//        System.out.println("Islas totales: " + islas);
+        return islas;
     }
 
-    public void recorridoProfundidad() {
+    public int recorridoProfundidad() {
         ListaClass visited = new ListaClass(-1, "VISITED");
         Stack stack = new Stack();
         int islas = 0;
@@ -239,6 +243,7 @@ public class Grafo {
             while (!stack.isEmpty()) {
                 Nodo peek = stack.getPeek();
                 int id = (int) peek.getElement();
+//                System.out.println(id);
 
                 stack.pop();
                 for (int i = 0; i < UserList[searchUser(id)].getLength(); i++) {
@@ -251,6 +256,33 @@ public class Grafo {
             }
             islas++;
         }
-        System.out.println("Islas totales: " + islas);
+//        System.out.println("Islas totales: " + islas);
+        return islas;
+    }
+
+    public Queue bridges(Grafo grafo) {
+        Queue queue = new Queue();
+        ListaClass visited = new ListaClass(-1, "VISITED");
+        int islas = grafo.recorridoProfundidad();
+        int bridges = 0;
+        int pointer;
+
+        for (int i = 0; i < getSize(); i++) {
+            pointer = UserList[i].getId();
+            for (int j = 0; j < UserList[searchUser(pointer)].getLength(); j++) {
+                int temp = UserList[searchUser(pointer)].getIndex(j).getId();
+
+                int years = UserList[searchUser(pointer)].getIndex(j).getTime_value();
+                deleteConnection(pointer, temp);
+                if (islas != recorridoProfundidad() && !visited.searchElement(temp)) {
+                    bridges++;
+                    System.out.println("Puente: " + pointer + " -> " + temp);
+                    queue.enqueue("Puente: " + pointer + " -> " + temp);
+                }
+                addConnection(pointer, temp, years);
+                visited.insertBegin(temp, -1);
+            }
+        }
+        return queue;
     }
 }

@@ -16,8 +16,16 @@ public class Main {
         TxtManager txt = new TxtManager();
         Grafo grafo = txt.readText();
 
-//        grafo.recorridoAmplitud();
-        grafo.recorridoProfundidad();
+        System.out.println("Islas totales: " + grafo.recorridoAmplitud());
+        System.out.println("Islas totales: " + grafo.recorridoProfundidad());
+        
+        grafo.addUser(5, "@OstiaTu");
+        
+        System.out.println("Islas totales: " + grafo.recorridoProfundidad());
+        System.out.println("Islas totales: " + grafo.recorridoAmplitud());
+
+        grafo.bridges(grafo);
+
         /*
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
@@ -36,6 +44,5 @@ public class Main {
             }
         }
          */
-
     }
 }
