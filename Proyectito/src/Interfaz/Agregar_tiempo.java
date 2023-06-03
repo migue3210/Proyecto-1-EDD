@@ -5,12 +5,18 @@
  */
 package Interfaz;
 
+import static Interfaz.Agregar_Amigo.idUsr;
+import static Interfaz.Bienvenido20.grafito;
+import static Interfaz.Cliente_guardar.NumAmi;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Agregar_tiempo extends javax.swing.JFrame {
     public static Cliente_guardar c1;
+    public static Agregar_Amigo a1;
 
     /**
      * Creates new form Doc_guardar
@@ -53,6 +59,11 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 170, 60));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
@@ -76,9 +87,22 @@ public class Agregar_tiempo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-        c1.setVisible(true);
-        this.setVisible(false);
+         int verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres guardar la coneccion?");
+        if (verdad == 0){
+        a1.setVisible(true);
+        this.setVisible(false);}
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        int year;
+        try{
+             year = Integer.parseInt(years.getText());
+           int id_ami = (int) NumAmi;
+        grafito.addConnection((int) idUsr,id_ami,year);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error, no es un numero");
+        }
+    }//GEN-LAST:event_guardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,4 +149,8 @@ public class Agregar_tiempo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField years;
     // End of variables declaration//GEN-END:variables
+
+    private int idUsr() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

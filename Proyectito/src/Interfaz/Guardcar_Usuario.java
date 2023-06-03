@@ -5,17 +5,25 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class Guardcar_Usuario extends javax.swing.JFrame {
+    public static Agregar_Amigo a1;
+    public static boolean validar=false;
 
     /**
      * Creates new form Eliminar_amigo
      */
-    public Guardcar_Usuario() {
+    public Guardcar_Usuario(Agregar_Amigo a1) {
         initComponents();
+        this.a1 = a1;
+        a1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -73,11 +81,24 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        // TODO add your handling code here:
+        String hi = "Listo";
+        validar = valida(hi);
+        a1.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_aceptarActionPerformed
-
+    
+    public boolean valida(String hi){
+        return hi =="Listo";
+    }
+    
+    
+    
     private void rechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechazarActionPerformed
-        // TODO add your handling code here:
+        String n = "no";
+        validar = valida(n);
+        a1.setVisible(true);
+        this.setVisible(false);
+        grafito.deleteUser(a1.idUser());
     }//GEN-LAST:event_rechazarActionPerformed
 
     /**
@@ -111,7 +132,7 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Guardcar_Usuario().setVisible(true);
+                new Guardcar_Usuario(a1).setVisible(true);
             }
         });
     }

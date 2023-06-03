@@ -34,9 +34,9 @@ public class Main {
 //        grafo.addUser(777, "MiguelRico");
 //        grafo.recorridoAmplitud();
     Bienvenido20 bn = new Bienvenido20();
-        TxtManager txt = new TxtManager();
-        
-        Grafo grafito = txt.readText();
+//        TxtManager txt = new TxtManager();
+//        
+//        Grafo grafito = txt.readText();
         
 //        System.setProperty("org.graphstream.ui", "swing");
 //        System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");

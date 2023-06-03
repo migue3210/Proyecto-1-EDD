@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
+import proyectito.TxtManager;
 
 /**
  *
@@ -144,12 +145,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminar_usuarioActionPerformed
 
     private void agregar_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_docActionPerformed
-        // TODO add your handling code here:
+        TxtManager txt = new TxtManager();
+        grafito = txt.readText();
     }//GEN-LAST:event_agregar_docActionPerformed
 
     private void mostrar_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_grafoActionPerformed
         System.setProperty("org.graphstream.ui", "swing");
-        System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+        
 
         Graph graph = new SingleGraph("Proyecto");
         graph.clear();
@@ -160,7 +162,6 @@ public class Menu extends javax.swing.JFrame {
             System.out.println(grafito.getUserList()[i].getId());
         }
 
-System.out.println(grafito);
          new Mostrar_Grafo2(grafito, graph);
          
     }//GEN-LAST:event_mostrar_grafoActionPerformed

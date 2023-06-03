@@ -93,6 +93,19 @@ public class Grafo {
        
     }
     
+    public String amigoUser(int id){
+        String name = "";
+        for (int i = 0; i < getTotalusers(); i++){
+            if(getUserList()[i] != null){
+                
+                if (getUserList()[i].getId() == id){
+                    name = getUserList()[i].getName();
+                }
+            }
+        }
+        return name;
+    }
+    
     public void addConnection (int IdUser, int IdConnection, int years_value) {
         if (IdUser == IdConnection){
             System.out.println("Entrada erronea, no puedes conectar a un usuario consigo mismo");
@@ -152,6 +165,24 @@ public class Grafo {
         }
     }
     }
+    
+    public String usuariosExiten(){
+          String usuario = "";  
+        if (isEmpty()){
+            System.out.println("El grafo esta vacío");
+        }else{
+        for (int i = 0; i < getTotalusers(); i++){
+            if(getUserList()[i] != null){
+                usuario+= "User: " + getUserList()[i].getName() + " [" + getUserList()[i].getId() + "]"+ "\n";
+
+                
+            }
+        }
+        }
+        return usuario;
+    }
+    
+    
     
     
 

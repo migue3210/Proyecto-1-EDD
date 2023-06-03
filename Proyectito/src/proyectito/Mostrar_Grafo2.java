@@ -27,27 +27,20 @@ public class Mostrar_Grafo2 {
         graph.setAttribute("ui.stylesheet", styleSheet);
         graph.setAutoCreate(true);
         graph.setStrict(false);
-//        graph.display();
+
         Viewer viewer = graph.display();
-// Let the layout work ...
-viewer.disableAutoLayout();
-// Do some work ...
-viewer.enableAutoLayout();
+
 viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
-        int i = 0;
-        for (Node node : graph) {
-            System.out.println(graph.getNode(i) + "     qupiotruweortuewioyrtieyrtoew");
-            i++;
-        }
+       
+        
         int id = 0;
-        i = 0;
-        for (i = 0; i < grafito.getTotalusers(); i++) {
+       
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
             NodoLista nodo = grafito.getUserList()[i].getHead();
             while (nodo != null) {
                 try {
-                    System.out.println("DONATAAAAA" + "");
                     graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
-                    System.out.println(grafito.getUserList()[i].getId() + "LECHEEEEE" + nodo.getId());
+                    
                     graph.getEdge(Integer.toString(id)).setAttribute("ui.style", "text-size: 30px;");
                     graph.getEdge(Integer.toString(id)).setAttribute("ui.label", Integer.toString(nodo.getTime_value()));
                     
@@ -66,7 +59,7 @@ viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
                 node.setAttribute("ui.label", node.getId());
                 node.setAttribute("ui.style", "text-size: 30px;");
                 node.setAttribute("ui.style", "size: 30px;");
-                id++;
+                
 
             }
 //JOptionPane.showMessageDialog(null, "lo que paso paso, entre tu y yooooo");
