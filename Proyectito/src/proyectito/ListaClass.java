@@ -156,9 +156,10 @@ public class ListaClass {
         int i=0;
         
         while (nodo != null){
+            if (nodo!=getHead()){
             System.out.print(" [" + nodo.getId() + "]pio");
         arai[i] = Integer.toString(nodo.getId());
-        
+            }
             nodo = (NodoLista) nodo.getNext();
             i++;
     }

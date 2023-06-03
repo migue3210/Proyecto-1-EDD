@@ -152,36 +152,8 @@ public class Grafo {
         }
     }
     }
-    public void tenerGrafoorigen() { 
-        if (isEmpty()){
-            System.out.println("El grafo esta vacío");
-        }else{
-        for (int i = 0; i < getTotalusers(); i++){
-            if(getUserList()[i] != null){
-                System.out.println("User: " + getUserList()[i].getName() + " [" + getUserList()[i].getId() + "]");
-
-                System.out.print("Connections:");
-                getUserList()[i].printList();
-                System.out.println("");
-            }
-        }
-    }
-    }
-    public void tenerGrafodestino() { 
-        if (isEmpty()){
-            System.out.println("El grafo esta vacío");
-        }else{
-        for (int i = 0; i < getTotalusers(); i++){
-            if(getUserList()[i] != null){
-                System.out.println("User: " + getUserList()[i].getName() + " [" + getUserList()[i].getId() + "]");
-
-                System.out.print("Connections:");
-                getUserList()[i].printList();
-                System.out.println("");
-            }
-        }
-    }
-    }
+    
+    
 
     public int getTotalusers() {
         return totalusers;

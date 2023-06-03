@@ -5,6 +5,18 @@
  */
 package Interfaz;
 
+import static Interfaz.Bienvenido20.grafito;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
+import proyectito.Mostrar_Grafo2;
+import org.graphstream.ui.swing_viewer.ViewPanel;
+import org.graphstream.ui.view.Viewer;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+
 /**
  *
  * @author Nicoll Pinzon
@@ -59,6 +71,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         agregar_doc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/botonAgregar3.png"))); // NOI18N
+        agregar_doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_docActionPerformed(evt);
+            }
+        });
         getContentPane().add(agregar_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 180, 80));
 
         agregar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/botonUsuario.png"))); // NOI18N
@@ -70,6 +87,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(agregar_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 80));
 
         mostrar_grafo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/mostrar_grafo.png"))); // NOI18N
+        mostrar_grafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_grafoActionPerformed(evt);
+            }
+        });
         getContentPane().add(mostrar_grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, 80));
 
         mostrar_islas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Mostrar_Islas.png"))); // NOI18N
@@ -120,6 +142,28 @@ public class Menu extends javax.swing.JFrame {
        c1.Eliminar(el);
         
     }//GEN-LAST:event_eliminar_usuarioActionPerformed
+
+    private void agregar_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_docActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregar_docActionPerformed
+
+    private void mostrar_grafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_grafoActionPerformed
+        System.setProperty("org.graphstream.ui", "swing");
+        System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+
+        Graph graph = new SingleGraph("Proyecto");
+        graph.clear();
+        int id = 0;
+
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
+            graph.addNode(Integer.toString(grafito.getUserList()[i].getId()));
+            System.out.println(grafito.getUserList()[i].getId());
+        }
+
+System.out.println(grafito);
+         new Mostrar_Grafo2(grafito, graph);
+         
+    }//GEN-LAST:event_mostrar_grafoActionPerformed
 
     /**
      * @param args the command line arguments

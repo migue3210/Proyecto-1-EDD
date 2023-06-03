@@ -5,9 +5,11 @@
  */
 package proyectito;
 
+import Interfaz.Bienvenido20;
 import static Interfaz.Bienvenido20.grafito;
 import java.util.Arrays;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -19,119 +21,75 @@ import org.graphstream.ui.view.Viewer;
  * @author Nicoll Pinzon
  */
 public class Mostrar_Grafo2 {
-    
 
-    
-
-    public Mostrar_Grafo2(Grafo grafito) {
-        Graph graph = new SingleGraph("proyecto");
+    public Mostrar_Grafo2(Grafo grafito, Graph graph) {
 
         graph.setAttribute("ui.stylesheet", styleSheet);
         graph.setAutoCreate(true);
         graph.setStrict(false);
-        graph.display();
-        grafito.printGrafo();
+//        graph.display();
+        Viewer viewer = graph.display();
+// Let the layout work ...
+viewer.disableAutoLayout();
+// Do some work ...
+viewer.enableAutoLayout();
+viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        int i = 0;
+        for (Node node : graph) {
+            System.out.println(graph.getNode(i) + "     qupiotruweortuewioyrtieyrtoew");
+            i++;
+        }
         int id = 0;
-            for (int i = 0; i < grafito.getTotalusers(); i++) {
-            if(grafito.getUserList()[i] != null){
-                NodoLista nodo = grafito.getUserList()[i].getHead();
-            
-           String[] punto = grafito.getUserList()[i].optdestino();
-            int npb = 0;
-            int id2=0;
+        i = 0;
+        for (i = 0; i < grafito.getTotalusers(); i++) {
+            NodoLista nodo = grafito.getUserList()[i].getHead();
             while (nodo != null) {
-                
-                    try{
-                if (Integer.parseInt(punto[npb])!=nodo.getId()){
-                        System.out.println(punto[id2] +" iop\npoe "+ nodo.getId());
-                    graph.addEdge(Integer.toString(id), Integer.toString(nodo.getId()),punto[id2]);
-//                    graph.getEdge(Integer.toString(id)).setAttribute("ui.label", Integer.toString(nodo.getTime_value()));
+                try {
+                    System.out.println("DONATAAAAA" + "");
+                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
+                    System.out.println(grafito.getUserList()[i].getId() + "LECHEEEEE" + nodo.getId());
                     graph.getEdge(Integer.toString(id)).setAttribute("ui.style", "text-size: 30px;");
-                    System.out.println("si paso " +graph.getEdge(Integer.toString(id)));
-                    id++;
-                    id2++;
+                    graph.getEdge(Integer.toString(id)).setAttribute("ui.label", Integer.toString(nodo.getTime_value()));
+                    
+
+                } catch (Exception e) {
+                    graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                 }
-                    }catch (Exception e){
-                      graph.addEdge(Integer.toString(id),punto[id2],Integer.toString(nodo.getId()));
-                       
-                       id++;
-                       id2++;
-                        System.out.println(e +"     no paso");
-                    }
-                     
-                    
-                nodo = (NodoLista) nodo.getNext();
-              }
+                    id++;
+                    nodo = (NodoLista) nodo.getNext();
             }
+
             }
-                    id = 0;
-                    for (Node node : graph) {
+           id = 0;
+            for (Node node : graph) {
 
-                        node.setAttribute("ui.label", node.getId());
-                        node.setAttribute("ui.style", "text-size: 30px;");
-                        node.setAttribute("ui.style", "size: 30px;");
-                        id++;
+                node.setAttribute("ui.label", node.getId());
+                node.setAttribute("ui.style", "text-size: 30px;");
+                node.setAttribute("ui.style", "size: 30px;");
+                id++;
 
-                    }
-
-                    
-//                        explore(graph.getNode(Integer.toString(grafito.getUserList()[0].getId())));
-//            
-//   
-//    
+            }
+//JOptionPane.showMessageDialog(null, "lo que paso paso, entre tu y yooooo");
+////         
+////        graph.setAutoCreate(false);
+////        graph.setStrict(true);
+////         graph.display().close();
+////viewer.removeView(this);
+//
+//try{
+//    viewer.close();
+//}catch(Exception e){
+//    System.out.println("AHHHHHHHH");
+//    Bienvenido20 bn = new Bienvenido20();
 //}
-////} 
-////    catch(Exception e){
-////    }
-////    }
-//
-//        
-//
-//                
-//
-//    
-//
-//    
-//
-//    
-//
-//    public void explore(Node source) {
-//        Iterator<? extends Node> k = source.getBreadthFirstIterator();
-//
-//        while (k.hasNext()) {
-//            Node next = k.next();
-//            next.setAttribute("ui.class", "marked");
-//            sleep();
-//        }
-//    }
 
-//    protected void sleep() {
-//        try {
-//            Thread.sleep(15);
-//        } catch (Exception e) {
-        
-//
-            }
-    
 
+    }
     protected String styleSheet
             = "node {"
-            + "	fill-color: white;"
-            + "}"
-            + "node.marked {"
             + "	fill-color: cyan;"
             + "}";
-    protected String stylSheet
-            = "node {"
-            + "	text-size: 20px;"
-            + "}"
-            + "node.marked {"
-            + "	text-size: 50px;"
-            + "}";
-    protected String stySheet
-            = "node {" + " size: 20px;" + "}"
-            + "node.marked {"
-            + "	text-size: 50px;"
-            + "}";
+   
+    
 
 }
