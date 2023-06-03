@@ -4,8 +4,16 @@
  */
 package proyectito;
 
+import Interfaz.Bienvenido20;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import static Interfaz.Bienvenido20.grafito;
+import java.util.Iterator;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.swing_viewer.ViewPanel;
+import org.graphstream.ui.view.Viewer;
 
 /**
  *
@@ -16,15 +24,72 @@ import javax.swing.JOptionPane;
 public class Main {
 
     public static void main(String[] args) {
-        Grafo grafo = new Grafo(1);
-        Grafo grafo2 = new Grafo(1);
+//        Grafo grafo = new Grafo(1);
+//        Grafo grafo2 = new Grafo(1);
+//        TxtManager txt = new TxtManager();
+//        txt.readText(grafo);
+//           
+//        
+//        grafo.recorridoAmplitud();
+//        grafo.addUser(777, "MiguelRico");
+//        grafo.recorridoAmplitud();
+    Bienvenido20 bn = new Bienvenido20();
         TxtManager txt = new TxtManager();
-        txt.readText(grafo);
-           
+        Grafo grafito = txt.readText();
+        System.setProperty("org.graphstream.ui", "swing");
+        System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
+
+        Graph graph = new SingleGraph("Proyecto");
+        graph.clear();
+        int id = 0;
+
+        for (int i = 0; i < grafito.getTotalusers(); i++) {
+            graph.addNode(Integer.toString(grafito.getUserList()[i].getId()));
+            System.out.println(grafito.getUserList()[i].getId());
+        }
+//        for (int i = 0; i < grafito.getTotalusers(); i++) {
+//
+//            NodoLista nodo = grafito.getUserList()[i].getHead();
+//           String[] puto = grafito.getUserList()[i].optdestino();
+//            while (nodo != null) {
+//                int npb = 0;
+//                if (id == 0){
+//                    graph.addEdge(Integer.toString(id), puto[npb], Integer.toString(nodo.getId()));
+//                    id++;
+//                }else{
+//                    Object Node5 = puto[npb];
+//                    Object Node7 = Integer.toString(nodo.getId());
+//                    while (npb < id - 1) {
+//                        if (graph.getEdge(Integer.toString(npb)).getNode1() == Node5 || graph.getEdge(Integer.toString(npb)).getNode0() == Node7) {
+//                            if (graph.getEdge(Integer.toString(npb)).getNode0() == Node5 || graph.getEdge(Integer.toString(npb)).getNode1() == Node7) {
+//                                graph.addEdge(Integer.toString(id), puto[npb], Integer.toString(nodo.getId()));
+//                                id++;
+//                            }
+//
+//                        }
+//
+//                    npb++;
+//
+//                }}
+//                nodo = (NodoLista) nodo.getNext();
+//            }
+
+            
+
+//        TxtManager txt = new TxtManager();
+//         Grafo grafito =txt.readText();
+//         Mostrar_Grafo np = new Mostrar_Grafo();
+//         np.gafo();
+//        Bienvenido20 bn = new Bienvenido20();
+//    grafo.addConnection(121, 254, 7);
+//        grafo.printGrafo();
+//    grafo.deleteConnection(121, 254);
+//        System.out.println("--------");
+//    grafo.printGrafo();
+System.out.println(grafito);
+         new Mostrar_Grafo2(grafito);
         
-        grafo.recorridoAmplitud();
-        grafo.addUser(777, "MiguelRico");
-        grafo.recorridoAmplitud();
+    }
         /*
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
@@ -45,4 +110,4 @@ public class Main {
         */
         
     }
-}
+
