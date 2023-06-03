@@ -31,7 +31,10 @@ public class TxtManager {
     }
 
     public Grafo readText() {
+        String archivo_iniciar = "";
         Grafo grafo = new Grafo(1);
+        while (!archivo_iniciar.equalsIgnoreCase("Lectura exitosa")){
+        
         JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File("./test"));
         file.setDialogTitle("Abre un archivo txt");
@@ -74,19 +77,22 @@ public class TxtManager {
 //                    System.out.println("");
                 }
                 lector.close();
+                archivo_iniciar = "Lectura exitosa";
                 JOptionPane.showMessageDialog(null, "Lectura exitosa");
+                
             } else {
+                
                 JOptionPane.showMessageDialog(null, "No se seleccionó ningún documento txt");
             }
 
         } catch (Exception err) {
             System.out.println(err);
             JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
-        }
+        }}
         return grafo;
     }
 
-    public void writeText(String nombreArchivo, Grafo grafo) {
+    public void writeText( Grafo grafo) {
         Queue queue = new Queue();
         try {
             FileWriter w = new FileWriter(getTxtFile());

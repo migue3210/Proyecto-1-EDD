@@ -25,7 +25,7 @@ import proyectito.TxtManager;
 public class Menu extends javax.swing.JFrame {
 
     public static Bienvenido20 b1;
-    
+    TxtManager txt = new TxtManager();
      /* Creates new form Menu
      */
     public Menu(Bienvenido20 b1) {
@@ -96,6 +96,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(mostrar_grafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 180, 80));
 
         mostrar_islas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Mostrar_Islas.png"))); // NOI18N
+        mostrar_islas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrar_islasActionPerformed(evt);
+            }
+        });
         getContentPane().add(mostrar_islas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 180, 80));
 
         puentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/puentes.png"))); // NOI18N
@@ -129,6 +134,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        txt.writeText(grafito);
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
@@ -145,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminar_usuarioActionPerformed
 
     private void agregar_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_docActionPerformed
-        TxtManager txt = new TxtManager();
+        txt.writeText(grafito);
         grafito = txt.readText();
     }//GEN-LAST:event_agregar_docActionPerformed
 
@@ -165,6 +171,10 @@ public class Menu extends javax.swing.JFrame {
          new Mostrar_Grafo2(grafito, graph);
          
     }//GEN-LAST:event_mostrar_grafoActionPerformed
+
+    private void mostrar_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrar_islasActionPerformed
+        MostrarIslas mi1= new MostrarIslas(this);
+    }//GEN-LAST:event_mostrar_islasActionPerformed
 
     /**
      * @param args the command line arguments

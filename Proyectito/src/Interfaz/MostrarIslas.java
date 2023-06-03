@@ -10,12 +10,17 @@ package Interfaz;
  * @author Nicoll Pinzon
  */
 public class MostrarIslas extends javax.swing.JFrame {
-
+public static Menu m;
     /**
      * Creates new form MostrarIslas
      */
-    public MostrarIslas() {
+    public MostrarIslas(Menu m) {
         initComponents();
+        this.m = m;
+        
+        m.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -54,9 +59,19 @@ public class MostrarIslas extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         bfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/bfs.png"))); // NOI18N
+        bfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bfsActionPerformed(evt);
+            }
+        });
         getContentPane().add(bfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 80));
 
         dfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/DFS.png"))); // NOI18N
+        dfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dfsActionPerformed(evt);
+            }
+        });
         getContentPane().add(dfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 120, 80));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
@@ -65,9 +80,19 @@ public class MostrarIslas extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
 
         atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasActionPerformed(evt);
+            }
+        });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 190, 90));
 
         exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 20, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/islas_boolean.png"))); // NOI18N
@@ -75,6 +100,23 @@ public class MostrarIslas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_atrasActionPerformed
+
+    private void bfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bfsActionPerformed
+
+    private void dfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dfsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dfsActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,7 +148,7 @@ public class MostrarIslas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MostrarIslas().setVisible(true);
+                new MostrarIslas(m).setVisible(true);
             }
         });
     }
