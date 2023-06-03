@@ -25,6 +25,7 @@ import proyectito.TxtManager;
 public class Menu extends javax.swing.JFrame {
 
     public static Bienvenido20 b1;
+    public static Amigo_eliminar2 ane2;
     TxtManager txt = new TxtManager();
      /* Creates new form Menu
      */
@@ -32,6 +33,14 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.b1 = b1;
         b1.setVisible(false);
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        
+    }
+    public Menu(Amigo_eliminar2 ane2) {
+        initComponents();
+        this.ane2 = ane2;
+        ane2.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         

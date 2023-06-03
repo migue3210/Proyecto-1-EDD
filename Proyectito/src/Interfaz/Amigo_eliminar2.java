@@ -13,7 +13,7 @@ import static Interfaz.Bienvenido20.grafito;
  */
 public class Amigo_eliminar2 extends javax.swing.JFrame {
     public static Cliente_guardar c1;
-    public static Menu m;
+    
     /**
      * Creates new form Amigo_eliminar2
      */
@@ -30,12 +30,7 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         
     }
     
-    public Amigo_eliminar2(Menu m) {
-       initComponents();
-    this.m = m;
-        m.setVisible(false);
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);}
+    
     
     public void numeroidel(int numid){
         id.setText(Integer.toString(numid));
@@ -119,14 +114,13 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        m.setVisible(true);
-        this.setVisible(false);
+        Menu m= new Menu(this);
+        
         grafito.deleteUser(Integer.parseInt(id.getText()));
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void rechazarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechazarActionPerformed
-        m.setVisible(true);
-        this.setVisible(false);
+       Menu m= new Menu(this);
     }//GEN-LAST:event_rechazarActionPerformed
 
     /**
