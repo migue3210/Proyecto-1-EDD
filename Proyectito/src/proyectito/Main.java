@@ -4,9 +4,6 @@
  */
 package proyectito;
 
-import java.util.Scanner;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Carlos Marcano
@@ -16,15 +13,11 @@ import javax.swing.JOptionPane;
 public class Main {
 
     public static void main(String[] args) {
-        Grafo grafo = new Grafo(1);
-        Grafo grafo2 = new Grafo(1);
         TxtManager txt = new TxtManager();
-        txt.readText(grafo);
-           
-        
-        grafo.recorridoAmplitud();
-        grafo.addUser(777, "MiguelRico");
-        grafo.recorridoAmplitud();
+        Grafo grafo = txt.readText();
+
+//        grafo.recorridoAmplitud();
+        grafo.recorridoProfundidad();
         /*
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
@@ -42,7 +35,7 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor en el rango");
             }
         }
-        */
-        
+         */
+
     }
 }
