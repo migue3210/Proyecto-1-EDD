@@ -22,18 +22,24 @@ public class Grafo {
         this.UserList = new ListaClass[Totalusers];
         this.size = 0;
     }
-    
+    /*
+    Chequea si el grafo esta vacio
+    */
     public boolean isEmpty(){
         return size == 0;
     }
-    
+    /*
+    Devuelve el espacio del array que este vacio
+    */
     public int searchSpace(){
         for (int i = 0; i < getTotalusers(); i++){ 
             if (getUserList()[i] == null){return i;}
         }
         return -1;
     }
-    
+    /*
+    Devuelve el espacio del array de un Id en especifico
+    */
     public int searchUser(int userId){
         if (getSize() == 0){
             return -1;
@@ -46,7 +52,9 @@ public class Grafo {
             return -1;
         }
     }
-    
+    /*
+    Aumenta la capacidad del array en 1
+    */
     public void expandUserList(){
         
         ListaClass[] UserList2 = new ListaClass[getTotalusers()+1];
@@ -57,7 +65,9 @@ public class Grafo {
         setUserList(UserList2);
         setTotalusers(getTotalusers() + 1);
     }
-    
+    /*
+    Agrega un usuario nuevo al grafo
+    */
     public void addUser(int id, String username){
         ListaClass user = new ListaClass(id, username);
         
@@ -74,7 +84,9 @@ public class Grafo {
             System.out.println("Entrada erronea, el usuario con id " + id + " ya existe en la base de datos");
         }
     }
-    
+    /*
+    Dado un id, elimina un usuario en especifico del grafo
+    */
     public void deleteUser(int id){
        if (searchUser(id) == -1){
            System.out.println("Entrada Erronea, no puedes eliminar al usuario con id: " + id + " por que no existe en la base de datos");
@@ -92,7 +104,9 @@ public class Grafo {
        }
        
     }
-    
+    /*
+    Crea la conexion entre dos usuarios con su valor de duracion de amistad
+    */
     public void addConnection (int IdUser, int IdConnection, int years_value) {
         if (IdUser == IdConnection){
             System.out.println("Entrada erronea, no puedes conectar a un usuario consigo mismo");
@@ -112,7 +126,9 @@ public class Grafo {
         }
         }
     }
-    
+    /*
+    Dados dos usuarios, elimina la conexion entre ellos
+    */
     public void deleteConnection (int IdUser, int IdConnection) {
         
     if (searchUser(IdUser) != -1 && searchUser(IdConnection) != -1){
@@ -127,7 +143,9 @@ public class Grafo {
     }else{System.out.println("Entrada erronea, el id " + IdUser + " o el id " + IdConnection + " no existen en la base de datos actual.");}
     }
     
-    
+    /*
+    Vacia el grafo completamente, dejando un (1) espacio vacio en el array
+    */
     public void emptyGrafo(){
         ListaClass[] EmptyUserList = new ListaClass[1];
         setUserList(EmptyUserList);
@@ -178,7 +196,12 @@ public class Grafo {
     }
     
     
-    
+    /*
+    Recorre todos los nodos del grafo, por cada vertice donde se detiene agrega 
+    sus conexiones a una cola, cada vez que la cola queda vacia se cuenta
+    como una isla y se busca otro vertice no visitado. Se finaliza el proceso al
+    haber visitado todos los vertices del grafo.
+    */
     public void recorridoAmplitud(){
         ListaClass visited = new ListaClass(-1,"VISITED");
         Queue cola = new Queue();

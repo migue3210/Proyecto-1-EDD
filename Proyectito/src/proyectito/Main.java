@@ -25,6 +25,7 @@ public class Main {
         grafo.recorridoAmplitud();
         grafo.addUser(777, "MiguelRico");
         grafo.recorridoAmplitud();
+        
         /*
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
