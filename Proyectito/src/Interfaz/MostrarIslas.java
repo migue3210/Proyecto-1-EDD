@@ -5,12 +5,16 @@
  */
 package Interfaz;
 
+import static Interfaz.Menu.seguro;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicoll Pinzon
  */
 public class MostrarIslas extends javax.swing.JFrame {
 public static Menu m;
+public static boolean bf_si = false;
     /**
      * Creates new form MostrarIslas
      */
@@ -58,7 +62,7 @@ public static Menu m;
         jLabel3.setText("quieres utilizar para ver las islas:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
-        bfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/bfs.png"))); // NOI18N
+        bfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bfs.png"))); // NOI18N
         bfs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bfsActionPerformed(evt);
@@ -66,7 +70,7 @@ public static Menu m;
         });
         getContentPane().add(bfs, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 120, 80));
 
-        dfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/DFS.png"))); // NOI18N
+        dfs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/DFS.png"))); // NOI18N
         dfs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dfsActionPerformed(evt);
@@ -79,7 +83,7 @@ public static Menu m;
         jLabel4.setText("ó");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
 
-        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
@@ -87,7 +91,7 @@ public static Menu m;
         });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 190, 90));
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.png"))); // NOI18N
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
@@ -95,7 +99,7 @@ public static Menu m;
         });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 20, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/islas_boolean.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/islas_boolean.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -107,15 +111,25 @@ public static Menu m;
     }//GEN-LAST:event_atrasActionPerformed
 
     private void bfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bfsActionPerformed
-        // TODO add your handling code here:
+         bf_si = true;
+        BFS_DFS bfs= new BFS_DFS(this);
     }//GEN-LAST:event_bfsActionPerformed
 
     private void dfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dfsActionPerformed
-        // TODO add your handling code here:
+        BFS_DFS bfs= new BFS_DFS(this);
     }//GEN-LAST:event_dfsActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        System.exit(0);
+        if (true == seguro){
+            System.exit(0);
+        }else{
+            Object verdad = JOptionPane.showConfirmDialog(null,"Seguro que no quieres guardar los cambios?");
+        if (verdad.equals(0)){
+              System.exit(0);
+              
+          }
+        
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     /**

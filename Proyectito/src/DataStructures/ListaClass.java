@@ -4,11 +4,11 @@
  */
 package DataStructures;
 
-import DataStructures.NodoLista;
+import proyectito.NodoLista;
 
 /**
  *
- * @author Carlol
+ * @author Carlos Marcano
  */
 public class ListaClass {
     
@@ -52,7 +52,7 @@ public class ListaClass {
             System.out.println("Nonexistent index");
             return nodo;
         }else{
-            if (index<0 || index > length) {
+            if (index<0 || index > getLength()) {
                 System.out.println("Nonexistent index");
                 return nodo;
             }else{
@@ -73,7 +73,7 @@ public class ListaClass {
     
     public boolean searchElement(int element){
         NodoLista nodo = getHead();
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < getLength(); i++){
             if (nodo == null){return false;}
             if (nodo.getId() == element){return true;}
             nodo = nodo.getNext();
@@ -199,7 +199,7 @@ public class ListaClass {
             index++;
         }
         DeleteIndex(index);
-        
+        length--;
     }
 
     public String getName() {
@@ -209,5 +209,10 @@ public class ListaClass {
     public int getId() {
         return id;
     }
+
+    public int getLength() {
+        return length;
+    }
+    
     
     }

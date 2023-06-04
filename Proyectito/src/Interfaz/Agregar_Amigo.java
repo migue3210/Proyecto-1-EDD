@@ -7,6 +7,7 @@ package Interfaz;
 
 import static Interfaz.Bienvenido20.grafito;
 import static Interfaz.Guardcar_Usuario.validar;
+import static Interfaz.Menu.seguro;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -17,6 +18,8 @@ import javax.swing.JOptionPane;
 public class Agregar_Amigo extends javax.swing.JFrame {
     public static Menu m;
     public static int idUsr;
+    
+    
     /**
      * Creates new form Agregar_Amigo
      */
@@ -36,6 +39,7 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         idUsr = numero;
         id.setText(Integer.toString(numero));       
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,9 +93,9 @@ public class Agregar_Amigo extends javax.swing.JFrame {
 
         id.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         id.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 60, 20));
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 100, 20));
 
-        agregar_amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/BotonAgregarAmi.png"))); // NOI18N
+        agregar_amigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BotonAgregarAmi.png"))); // NOI18N
         agregar_amigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregar_amigoActionPerformed(evt);
@@ -99,7 +103,7 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         });
         getContentPane().add(agregar_amigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 180, 60));
 
-        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
+        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar.png"))); // NOI18N
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
@@ -107,7 +111,7 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         });
         getContentPane().add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 190, 60));
 
-        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
@@ -115,7 +119,7 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 170, 90));
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.png"))); // NOI18N
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
@@ -123,14 +127,23 @@ public class Agregar_Amigo extends javax.swing.JFrame {
         });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 20, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Agregar2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Agregar2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        System.exit(0);
+        if (true == seguro){
+            System.exit(0);
+        }else{
+            Object verdd = JOptionPane.showConfirmDialog(null,"Seguro que no quieres guardar los cambios?");
+        if (verdd.equals(0)){
+              System.exit(0);
+              
+          }
+        
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
@@ -138,8 +151,9 @@ public class Agregar_Amigo extends javax.swing.JFrame {
             this.setVisible(false);
         m.setVisible(true);
         }else{
+            
             Object verdad = JOptionPane.showConfirmDialog(null,"Seguro que no quieres guardar los cambios?");
-          if (verdad == "0"){
+          if (verdad.equals(0)){
               this.setVisible(false);
             m.setVisible(true);
               

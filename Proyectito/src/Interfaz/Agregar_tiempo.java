@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class Agregar_tiempo extends javax.swing.JFrame {
     public static Cliente_guardar c1;
-    public static Agregar_Amigo a1;
+    
 
     /**
      * Creates new form Doc_guardar
@@ -58,7 +58,7 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         jLabel2.setFocusable(false);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Guardar.png"))); // NOI18N
+        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Guardar.png"))); // NOI18N
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
@@ -80,17 +80,18 @@ public class Agregar_tiempo extends javax.swing.JFrame {
         });
         getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 180, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/amigoBoolean.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amigoBoolean.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-         int verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres guardar la coneccion?");
-        if (verdad == 0){
-        a1.setVisible(true);
-        this.setVisible(false);}
+         Object verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres guardar la coneccion?");
+        if (verdad.equals(0)){
+        c1.setVisible(true);
+        this.setVisible(false);
+        }
     }//GEN-LAST:event_atrasActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
@@ -99,6 +100,9 @@ public class Agregar_tiempo extends javax.swing.JFrame {
              year = Integer.parseInt(years.getText());
            int id_ami = (int) NumAmi;
         grafito.addConnection((int) idUsr,id_ami,year);
+        
+        c1.setVisible(true);
+        this.setVisible(false);
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,"Error, no es un numero");
         }

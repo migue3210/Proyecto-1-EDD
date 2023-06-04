@@ -71,7 +71,7 @@
     <Component class="javax.swing.JButton" name="bfs">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/bfs.png"/>
+          <Image iconType="3" name="/imagenes/bfs.png"/>
         </Property>
       </Properties>
       <Events>
@@ -86,7 +86,7 @@
     <Component class="javax.swing.JButton" name="dfs">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/DFS.png"/>
+          <Image iconType="3" name="/imagenes/DFS.png"/>
         </Property>
       </Properties>
       <Events>
@@ -117,7 +117,7 @@
     <Component class="javax.swing.JButton" name="atras">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/atras.png"/>
+          <Image iconType="3" name="/imagenes/atras.png"/>
         </Property>
       </Properties>
       <Events>
@@ -132,7 +132,7 @@
     <Component class="javax.swing.JButton" name="exit">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/x2.png"/>
+          <Image iconType="3" name="/imagenes/x2.png"/>
         </Property>
       </Properties>
       <Events>
@@ -147,7 +147,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Interfaz/islas_boolean.png"/>
+          <Image iconType="3" name="/imagenes/islas_boolean.png"/>
         </Property>
       </Properties>
       <Constraints>

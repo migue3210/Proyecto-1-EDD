@@ -71,10 +71,7 @@ public class TxtManager {
                         String[] conection = connections_split[i].split("(, |,)");
                         grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
                     }
-//                    grafo.printGrafo();
-//                    System.out.println("");
-//                    System.out.println("");
-//                    System.out.println("");
+                    grafo.printGrafo();
                 }
                 lector.close();
                 archivo_iniciar = "Lectura exitosa";
@@ -88,28 +85,29 @@ public class TxtManager {
         } catch (Exception err) {
             System.out.println(err);
             JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
-        }}
+       }}
         return grafo;
     }
 
-    public void writeText( Grafo grafo) {
-        Queue queue = new Queue();
+    public void writeText(Grafo grafo) {
         try {
             FileWriter w = new FileWriter(getTxtFile());
             BufferedWriter bw = new BufferedWriter(w);
             PrintWriter wr = new PrintWriter(bw);
             wr.append("Usuarios\n");
             for (int i = 0; i < grafo.getTotalusers(); i++) {
-                wr.append(grafo.getUserList()[i].getId() + ", " + grafo.getUserList()[i].getName() + "\n");
+                if(grafo.getUserList()[i]!= null){
+                wr.append(grafo.getUserList()[i].getId() + ", " + grafo.getUserList()[i].getName() + "\n");}
             }
             wr.append("Relaciones\n");
             for (int i = 0; i < grafo.getTotalusers(); i++) {
+                if(grafo.getUserList()[i]!= null){
                 NodoLista nodo = grafo.getUserList()[i].getHead();
                 while (nodo != null) {
                     
                     wr.append(grafo.getUserList()[i].getId() + ", " + nodo.getId() + ", " + nodo.getTime_value() + "\n");
                     nodo = (NodoLista) nodo.getNext();
-                }
+                }}
             }
             wr.close();
             bw.close();

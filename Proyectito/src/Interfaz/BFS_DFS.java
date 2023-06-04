@@ -4,26 +4,33 @@
  * and open the template in the editor.
  */
 package Interfaz;
-
 import static Interfaz.Bienvenido20.grafito;
+import static Interfaz.MostrarIslas.bf_si;
+
 
 /**
  *
  * @author Nicoll Pinzon
  */
-public class Listas_puentes extends javax.swing.JFrame {
-public static Menu m;
+public class BFS_DFS extends javax.swing.JFrame {
+public static MostrarIslas mi;
     /**
-     * Creates new form Listas_puentes
+     * Creates new form BFS_DFS
      */
-    public Listas_puentes(Menu m) {
+    public BFS_DFS(MostrarIslas mi) {
         initComponents();
-        this.m = m;
+        this.mi = mi;
         
-        m.setVisible(false);
+        mi.setVisible(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        puentes.setText(grafito.bridges(grafito));
+        
+        if (bf_si == true){
+            islas.setText(Integer.toString(grafito.recorridoAmplitud()));
+        }else {
+            islas.setText(Integer.toString(grafito.recorridoProfundidad()));
+            
+        }
     }
 
     /**
@@ -36,29 +43,24 @@ public static Menu m;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        puentes = new javax.swing.JTextArea();
-        atras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        islas = new javax.swing.JLabel();
+        atras = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Los puentes que hay en el grafo son:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Total de Islas: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
 
-        puentes.setColumns(20);
-        puentes.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        puentes.setRows(5);
-        jScrollPane1.setViewportView(puentes);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 200, 130));
+        islas.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
+        getContentPane().add(islas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 120, 60));
 
         atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -66,17 +68,16 @@ public static Menu m;
                 atrasActionPerformed(evt);
             }
         });
-        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 180, 70));
+        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 190, 80));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mostrar_puentes4.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/islas_boolean.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
-        m.setVisible(true);
-        this.setVisible(false);
+         Menu m= new Menu(this);
     }//GEN-LAST:event_atrasActionPerformed
 
     /**
@@ -96,30 +97,29 @@ public static Menu m;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listas_puentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFS_DFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listas_puentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFS_DFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listas_puentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFS_DFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listas_puentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BFS_DFS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Listas_puentes(m).setVisible(true);
+                new BFS_DFS(mi).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atras;
+    private javax.swing.JLabel islas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea puentes;
     // End of variables declaration//GEN-END:variables
 }

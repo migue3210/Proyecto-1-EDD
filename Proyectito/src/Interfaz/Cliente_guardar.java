@@ -5,7 +5,9 @@
  */
 package Interfaz;
 
+import static Interfaz.Agregar_Amigo.idUsr;
 import static Interfaz.Bienvenido20.grafito;
+import static Interfaz.Menu.seguro;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +18,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
     public static Agregar_Amigo a1;
     public static Menu m;
     public static int NumAmi;
+    
     
     /**
      * Creates new form Cliente_guardar
@@ -71,7 +74,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.png"))); // NOI18N
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
@@ -79,7 +82,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 20, 20));
 
-        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/atras.png"))); // NOI18N
+        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/atras.png"))); // NOI18N
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atrasActionPerformed(evt);
@@ -105,7 +108,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         });
         getContentPane().add(numid, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 130, -1));
 
-        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/ok.png"))); // NOI18N
+        ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ok.png"))); // NOI18N
         ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okActionPerformed(evt);
@@ -113,7 +116,7 @@ public class Cliente_guardar extends javax.swing.JFrame {
         });
         getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 30, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/amigos.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amigos.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -126,18 +129,35 @@ public class Cliente_guardar extends javax.swing.JFrame {
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
         Object cambio = "Inserte el ID de tu amigo:";
         if (cambio.equals(eliminar.getText()) ){
-            a1.setVisible(true);
+            Object verdad = JOptionPane.showConfirmDialog(null, "Seguro que ya no quieres agregar mas amigos?");
+        if (verdad.equals(0)){
+        a1.setVisible(true);
             this.setVisible(false);
+        }
+            
         }else{
-            m.setVisible(true);
+            Object verdad = JOptionPane.showConfirmDialog(null, "Seguro que no quieres eliminar un usuario?");
+        if (verdad.equals(0)){
+        m.setVisible(true);
             this.setVisible(false);
+        }
+            
         }
         
         
     }//GEN-LAST:event_atrasActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        System.exit(0);
+        if (true == seguro){
+            System.exit(0);
+        }else{
+            Object verdad = JOptionPane.showConfirmDialog(null,"Seguro que no quieres guardar los cambios?");
+        if (verdad.equals(0)){
+              System.exit(0);
+              
+          }
+        
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
@@ -150,7 +170,9 @@ public class Cliente_guardar extends javax.swing.JFrame {
             if (num== -1){
                 JOptionPane.showMessageDialog(null, "No existe una persona con este id: "+ numid.getText());
             }else {
-           Agregar_tiempo at = new Agregar_tiempo(this);
+                if (grafito.alreadyConnected(Integer.parseInt(numid.getText()), idUsr) == true){
+                NumAmi = Integer.parseInt(numid.getText());
+                Agregar_tiempo at = new Agregar_tiempo(this);}
             }
             }catch( Exception e ){
                 JOptionPane.showMessageDialog(null,"Error, no pusiste un numero");

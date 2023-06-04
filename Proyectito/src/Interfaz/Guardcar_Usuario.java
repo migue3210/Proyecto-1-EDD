@@ -58,7 +58,7 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
         jLabel3.setText("cambios a este usuario?");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
-        aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/aceptar4.png"))); // NOI18N
+        aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/aceptar4.png"))); // NOI18N
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
@@ -66,7 +66,7 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 150, 70));
 
-        rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/rechazar.png"))); // NOI18N
+        rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rechazar.png"))); // NOI18N
         rechazar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rechazarActionPerformed(evt);
@@ -74,7 +74,7 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(rechazar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 150, 70));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/clienteBoolean3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/clienteBoolean3.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -83,8 +83,8 @@ public class Guardcar_Usuario extends javax.swing.JFrame {
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String hi = "Listo";
         validar = valida(hi);
-        a1.setVisible(true);
-        this.setVisible(false);
+       Menu m= new Menu(this);
+        
     }//GEN-LAST:event_aceptarActionPerformed
     
     public boolean valida(String hi){

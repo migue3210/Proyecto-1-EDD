@@ -14,6 +14,7 @@ import proyectito.TxtManager;
  */
 public class Bienvenido20 extends javax.swing.JFrame {
     public static Grafo grafito;
+    public static TxtManager txt = new TxtManager();
 
     /**
      * Creates new form Mostrar_Grafo
@@ -42,6 +43,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
         continuar = new javax.swing.JButton();
         exit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +64,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 560, 210));
 
-        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Continuar.png"))); // NOI18N
+        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Continuar.png"))); // NOI18N
         continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continuarActionPerformed(evt);
@@ -70,7 +72,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
         });
         getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 620, 60));
 
-        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/x2.png"))); // NOI18N
+        exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/x2.png"))); // NOI18N
         exit.setFocusable(false);
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,15 +81,18 @@ public class Bienvenido20 extends javax.swing.JFrame {
         });
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 30, 20, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/Bienvenido.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Bienvenido.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Bienvenido.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         Menu m = new Menu(this);
-        TxtManager txt = new TxtManager();
+        
         grafito = txt.readText();
     }//GEN-LAST:event_continuarActionPerformed
 
@@ -136,6 +141,7 @@ public class Bienvenido20 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton continuar;
     private javax.swing.JButton exit;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

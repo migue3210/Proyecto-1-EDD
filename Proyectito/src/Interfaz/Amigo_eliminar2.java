@@ -84,9 +84,9 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
 
         usuario.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         usuario.setForeground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 100, 20));
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 160, 20));
 
-        aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/aceptar4.png"))); // NOI18N
+        aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/aceptar4.png"))); // NOI18N
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
@@ -94,7 +94,7 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         });
         getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 140, 60));
 
-        rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/rechazar.png"))); // NOI18N
+        rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rechazar.png"))); // NOI18N
         rechazar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rechazarActionPerformed(evt);
@@ -107,7 +107,7 @@ public class Amigo_eliminar2 extends javax.swing.JFrame {
         jLabel5.setText("?");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/amigoBoolean.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/amigoBoolean.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

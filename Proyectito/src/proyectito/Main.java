@@ -24,48 +24,25 @@ import org.graphstream.ui.view.Viewer;
 public class Main {
 
     public static void main(String[] args) {
-//        Grafo grafo = new Grafo(1);
-//        Grafo grafo2 = new Grafo(1);
 //        TxtManager txt = new TxtManager();
-//        txt.readText(grafo);
-//           
-//        
-//        grafo.recorridoAmplitud();
-//        grafo.addUser(777, "MiguelRico");
-//        grafo.recorridoAmplitud();
-    Bienvenido20 bn = new Bienvenido20();
-//        TxtManager txt = new TxtManager();
-//        
-//        Grafo grafito = txt.readText();
+//        Grafo grafo = txt.readText();
+//        txt.writeText(grafo);
+//        grafo = txt.readText();
         
-//        System.setProperty("org.graphstream.ui", "swing");
-//        System.out.println("SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
-//
-//        Graph graph = new SingleGraph("Proyecto");
-//        graph.clear();
-//        int id = 0;
-//
-//        for (int i = 0; i < grafito.getTotalusers(); i++) {
-//            graph.addNode(Integer.toString(grafito.getUserList()[i].getId()));
-//            System.out.println(grafito.getUserList()[i].getId());
-//        }
-////      
-//            
-//
-////        TxtManager txt = new TxtManager();
-////         Grafo grafito =txt.readText();
-////         Mostrar_Grafo np = new Mostrar_Grafo();
-////         np.gafo();
-////        Bienvenido20 bn = new Bienvenido20();
-////    grafo.addConnection(121, 254, 7);
-////        grafo.printGrafo();
-////    grafo.deleteConnection(121, 254);
-////        System.out.println("--------");
-////    grafo.printGrafo();
-//System.out.println(grafito);
-//         new Mostrar_Grafo2(grafito, graph);
+
+        Bienvenido20 bn = new Bienvenido20();
         
-    }
+
+//        System.out.println("Islas totales: " + grafo.recorridoAmplitud());
+//        System.out.println("Islas totales: " + grafo.recorridoProfundidad());
+//        
+//        grafo.addUser(5, "@OstiaTu");
+//        
+//        System.out.println("Islas totales: " + grafo.recorridoProfundidad());
+//        System.out.println("Islas totales: " + grafo.recorridoAmplitud());
+//
+//        grafo.bridges(grafo);
+
         /*
         while (true) {
             String menu = JOptionPane.showInputDialog("1. Agregar Usuario\n2. Abrir otro txt\n3. Salir");
@@ -83,7 +60,6 @@ public class Main {
                 JOptionPane.showMessageDialog(null, "Ingrese un valor en el rango");
             }
         }
-        */
-        
-    }
+         */
+    }}
 

@@ -36,8 +36,10 @@ viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         int id = 0;
        
         for (int i = 0; i < grafito.getTotalusers(); i++) {
+            if (grafito.getUserList()[i] != null){
             NodoLista nodo = grafito.getUserList()[i].getHead();
-            while (nodo != null) {
+            
+            while (nodo != null  ) {
                 try {
                     graph.addEdge(Integer.toString(id), Integer.toString(grafito.getUserList()[i].getId()), Integer.toString(nodo.getId()));
                     
@@ -51,7 +53,7 @@ viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
                     id++;
                     nodo = (NodoLista) nodo.getNext();
             }
-
+        }
             }
            id = 0;
             for (Node node : graph) {
