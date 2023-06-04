@@ -115,17 +115,17 @@ public class Grafo {
 
     public void addConnection(int IdUser, int IdConnection, int years_value) {
         if (IdUser == IdConnection) {
-            JOptionPane.showMessageDialog(null,"Entrada erronea, no puedes conectar a un usuario consigo mismo");
+            JOptionPane.showMessageDialog(null, "Entrada erronea, no puedes conectar a un usuario consigo mismo");
         } else {
             if (years_value < 0) {
-                JOptionPane.showMessageDialog(null,"Entrada erronea, la conexión de dos usuarios no puede ser menor a 0");
+                JOptionPane.showMessageDialog(null, "Entrada erronea, la conexión de dos usuarios no puede ser menor a 0");
             } else {
                 if (searchUser(IdUser) != -1 && searchUser(IdConnection) != -1) {
                     if (getUserList()[searchUser(IdUser)].searchElement(IdConnection)) {
                         System.out.println("Entrada erronea, el id " + IdUser + " y el id " + IdConnection + " ya estan conectados.");
                     } else {
-                        getUserList()[searchUser(IdUser)].insertEnd(IdConnection, years_value);
-                        getUserList()[searchUser(IdConnection)].insertEnd(IdUser, years_value);
+                        getUserList()[searchUser(IdUser)].insertBegin(IdConnection, years_value);
+                        getUserList()[searchUser(IdConnection)].insertBegin(IdUser, years_value);
                     }
 
                 } else {
@@ -134,7 +134,8 @@ public class Grafo {
             }
         }
     }
-    public boolean alreadyConnected(int IdUser, int IdConnection){
+
+    public boolean alreadyConnected(int IdUser, int IdConnection) {
 //     if (IdUser == IdConnection) {
 //            
 //            JOptionPane.showMessageDialog(null,"Entrada erronea, no puedes conectar a un usuario consigo mismo");
@@ -142,8 +143,11 @@ public class Grafo {
 //                        return false;
 //                    } else {return true;}
         if (getUserList()[searchUser(IdUser)].searchElement(IdConnection)) {
-                    JOptionPane.showMessageDialog(null,"Entrada erronea, el id " + IdUser + " y el id " + IdConnection + " ya estan conectados.");
-        return false;}return true;}
+            JOptionPane.showMessageDialog(null, "Entrada erronea, el id " + IdUser + " y el id " + IdConnection + " ya estan conectados.");
+            return false;
+        }
+        return true;
+    }
 
     public void deleteConnection(int IdUser, int IdConnection) {
 
@@ -184,10 +188,8 @@ public class Grafo {
         return usuario;
     }
 
-
-
 //Solo para ser usado en pruebas
-public void printGrafo() {
+    public void printGrafo() {
         if (isEmpty()) {
             System.out.println("El grafo esta vacío");
         } else {
@@ -235,9 +237,11 @@ public void printGrafo() {
 
         while (visited.getLength() != getSize()) {
             for (int i = 0; i < getSize(); i++) {
-                pointer = UserList[i].getId();
-                if (!visited.searchElement(UserList[i].getId())) {
-                    break;
+                if (UserList[i] != null) {
+                    pointer = UserList[i].getId();
+                    if (!visited.searchElement(UserList[i].getId())) {
+                        break;
+                    }
                 }
             }
 
@@ -272,9 +276,11 @@ public void printGrafo() {
 
         while (visited.getLength() != getSize()) {
             for (int i = 0; i < getSize(); i++) {
-                pointer = UserList[i].getId();
-                if (!visited.searchElement(UserList[i].getId())) {
-                    break;
+                if (UserList[i] != null) {
+                    pointer = UserList[i].getId();
+                    if (!visited.searchElement(UserList[i].getId())) {
+                        break;
+                    }
                 }
             }
 
@@ -302,7 +308,7 @@ public void printGrafo() {
     }
 
     public String bridges(Grafo grafo) {
-        
+
         ListaClass visited = new ListaClass(-1, "VISITED");
         int islas = grafo.recorridoProfundidad();
         int bridges = 0;
@@ -310,20 +316,22 @@ public void printGrafo() {
         String puentes_text = "";
 
         for (int i = 0; i < getSize(); i++) {
-            pointer = UserList[i].getId();
-            for (int j = 0; j < UserList[searchUser(pointer)].getLength(); j++) {
-                int temp = UserList[searchUser(pointer)].getIndex(j).getId();
+            if (UserList[i] != null) {
+                pointer = UserList[i].getId();
+                for (int j = 0; j < UserList[searchUser(pointer)].getLength(); j++) {
+                    int temp = UserList[searchUser(pointer)].getIndex(j).getId();
 
-                int years = UserList[searchUser(pointer)].getIndex(j).getTime_value();
-                deleteConnection(pointer, temp);
-                if (islas != recorridoProfundidad() && !visited.searchElement(temp)) {
-                    bridges++;
-                    System.out.println("Puente: " + pointer + " -> " + temp);
-                    puentes_text += "Puente: " + pointer + " -> " + temp+"\n";
-                    
+                    int years = UserList[searchUser(pointer)].getIndex(j).getTime_value();
+                    deleteConnection(pointer, temp);
+                    if (islas != recorridoProfundidad() && !visited.searchElement(temp)) {
+                        bridges++;
+                        System.out.println("Puente: " + pointer + " -> " + temp);
+                        puentes_text += "Puente: " + pointer + " -> " + temp + "\n";
+
+                    }
+                    addConnection(pointer, temp, years);
+                    visited.insertBegin(temp, -1);
                 }
-                addConnection(pointer, temp, years);
-                visited.insertBegin(temp, -1);
             }
         }
         return puentes_text;
