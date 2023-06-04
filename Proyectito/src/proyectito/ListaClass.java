@@ -70,6 +70,9 @@ public class ListaClass {
 
     
     public boolean searchElement(int element){
+        if (isEmpty()){
+            return false;
+        }else{
         NodoLista nodo = getHead();
         for (int i = 0; i < getLength(); i++){
             if (nodo == null){return false;}
@@ -79,6 +82,7 @@ public class ListaClass {
         
         return false;
         }
+    }
     
     
     public void insertBegin(int Element, int value){

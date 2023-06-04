@@ -4,6 +4,7 @@
  */
 package proyectito;
 
+import DataStructures.Queue;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,68 +33,59 @@ public class TxtManager {
     }
 
     public Grafo readText() {
-        String verificar = "Comienzo";
         Grafo grafo = new Grafo(1);
-        while (verificar != "Lectura exitosa") {
-            JFileChooser file = new JFileChooser();
-            file.setCurrentDirectory(new File("./test"));
-            file.setDialogTitle("Abre un archivo txt");
-            int result = file.showOpenDialog(null);
-            File txt = file.getSelectedFile();
-            setTxtFile(txt);
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File("./test"));
+        file.setDialogTitle("Abre un archivo txt");
+        int result = file.showOpenDialog(null);
+        File txt = file.getSelectedFile();
+        setTxtFile(txt);
 
-            String line;
-            String users_txt = "";
-            BufferedReader lector;
+        String line;
+        String users_txt = "";
+        BufferedReader lector;
 
-            try {
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    if (!grafo.isEmpty()) {
-                        grafo.emptyGrafo();
-                    }
-                    lector = new BufferedReader(new FileReader(txt));
-                    while ((line = lector.readLine()) != null) {
-                        if (!line.isEmpty()) {
-                            users_txt += line + "\n";
-                        }
-                    }
-                    if (!"".equals(users_txt)) {
-                        String[] fsplit = users_txt.split("Relaciones\n");
-                        String[] users_split = fsplit[0].split("\n");
-                        for (int i = 0; i < users_split.length; i++) {
-                            String[] user = users_split[i].split("(,|, )");
-                            if (!users_split[i].equals("Usuarios")) {
-                                grafo.addUser(Integer.parseInt(user[0]), user[1]);
-                            }
-                        }
-                        String[] connections_split = fsplit[1].split("\n");
-                        for (int i = 0; i < connections_split.length; i++) {
-                            String[] conection = connections_split[i].split("(, |,)");
-                            grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
-                        }
-                        grafo.printGrafo();
-                        verificar = "Lectura exitosa";
-                        JOptionPane.showMessageDialog(null, "Lectura exitosa");
-
-                    }
-                    lector.close();
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se seleccionó ningún documento txt");
-                    verificar = "No se seleccionó ningún documento txt";
+        try {
+            if (result == JFileChooser.APPROVE_OPTION) {
+                if (!grafo.isEmpty()) {
+                    grafo.emptyGrafo();
                 }
+                lector = new BufferedReader(new FileReader(txt));
+                while ((line = lector.readLine()) != null) {
+                    if (!line.isEmpty()) {
+                        users_txt += line + "\n";
+                    }
+                }
+                if (!"".equals(users_txt)) {
+                    String[] fsplit = users_txt.split("Relaciones\n");
+                    String[] users_split = fsplit[0].split("\n");
+                    for (int i = 0; i < users_split.length; i++) {
+                        String[] user = users_split[i].split("(,|, )");
+                        if (!users_split[i].equals("Usuarios")) {
+                            grafo.addUser(Integer.parseInt(user[0]), user[1]);
+                        }
+                    }
+                    String[] connections_split = fsplit[1].split("\n");
+                    for (int i = 0; i < connections_split.length; i++) {
+                        String[] conection = connections_split[i].split("(, |,)");
+                        grafo.addConnection(Integer.parseInt(conection[0]), Integer.parseInt(conection[1]), Integer.parseInt(conection[2]));
+                    }
+                    grafo.printGrafo();
+                    JOptionPane.showMessageDialog(null, "Lectura exitosa");
 
-            } catch (Exception err) {
-                System.out.println(err);
-                JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
-                verificar = "No se seleccionó ningún documento txt";
+                }
+                grafo.printGrafo();
             }
 
+        } catch (Exception err) {
+            System.out.println(err);
+            JOptionPane.showMessageDialog(null, "error al momento de leer los usuarios y sus relaciones.");
         }
         return grafo;
+
     }
 
-    public void writeText(String nombreArchivo, Grafo grafo) {
+    public void writeText(Grafo grafo) {
         try {
             FileWriter w = new FileWriter(getTxtFile());
             BufferedWriter bw = new BufferedWriter(w);
@@ -106,6 +98,7 @@ public class TxtManager {
             for (int i = 0; i < grafo.getTotalusers(); i++) {
                 NodoLista nodo = grafo.getUserList()[i].getHead();
                 while (nodo != null) {
+
                     wr.append(grafo.getUserList()[i].getId() + ", " + nodo.getId() + ", " + nodo.getTime_value() + "\n");
                     nodo = (NodoLista) nodo.getNext();
                 }

@@ -60,7 +60,22 @@ public class Queue {
         }
         length++;
     }
-
+    
+    public boolean searchElement(int element){
+        if (isEmpty()){
+            return false;
+        }else{
+        Nodo nodo = getHead();
+        for (int i = 0; i < getLength(); i++){
+            if (nodo == null){return false;}
+            if ((int) nodo.getElement() == element){return true;}
+            nodo = nodo.getNext();
+            }
+        
+        return false;
+        }
+    }
+    
     public void dequeue() {
         if (isEmpty()) {
             System.out.println("The queue is empty");
@@ -94,7 +109,7 @@ public class Queue {
     public void print() {
         Nodo pointer = getHead();
         while (pointer != null) {
-            System.out.println(pointer.getElement());
+            System.out.print(" [" + pointer.getElement()+ "]");
             pointer = pointer.getNext();
         }
     }
