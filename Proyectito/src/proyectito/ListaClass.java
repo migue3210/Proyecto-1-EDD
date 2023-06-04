@@ -26,13 +26,21 @@ public class ListaClass {
     
     
     
-    
+    /*
+    Declara un nodo como cabeza de la lista
+    */
     public void setHead(NodoLista head){
         this.head = head;
     }
+    /*
+    Devuelve el nodo que este declarado como cabeza
+    */
     public NodoLista getHead() {
         return head;
     }
+    /*
+    Devuelve el ultimo nodo de la lista
+    */
     public NodoLista getLast(){
         NodoLista pointer = getHead();
         while (pointer.getNext() != null){
@@ -40,10 +48,14 @@ public class ListaClass {
         }
         return pointer;
     }
-    
+    /*
+    Verifica si la lista esta vacia o no
+    */
     public boolean isEmpty(){
         return getHead() == null;
-    }
+    }/*
+    Dado un int "n", devuelve el nodo en la posicion "n" de la lista.
+    */
     public NodoLista getIndex(int index){
         NodoLista nodo = getHead();
         if (isEmpty()) {
@@ -68,7 +80,9 @@ public class ListaClass {
         }    
     }
 
-    
+    /*
+    Verifica si un elemento en especifico esta contenido en la lista
+    */
     public boolean searchElement(int element){
         if (isEmpty()){
             return false;
@@ -84,7 +98,9 @@ public class ListaClass {
         }
     }
     
-    
+    /*
+    Inserta un elemento al inicio de la lista
+    */
     public void insertBegin(int Element, int value){
         NodoLista nodo = new NodoLista(Element);
         nodo.setTime_value(value);
@@ -99,7 +115,9 @@ public class ListaClass {
         }
         length++;
     }
-        
+    /*
+    Elimina el primer elemento de la lista
+    */  
     public void deleteBegin(){
         if (isEmpty()){
             System.out.println("The list is empty");
@@ -111,7 +129,9 @@ public class ListaClass {
         }
         length--;
     }
-    
+    /*
+    Inserta un nodo al final de la lista
+    */
     public void insertEnd(int Element, int value){
         NodoLista nodo = new NodoLista(Element);
         nodo.setTime_value(value);
@@ -127,6 +147,9 @@ public class ListaClass {
         }
         length++;
     }
+    /*
+    Elimina el ultimo nodo de la lista
+    */
     public void deleteEnd(){
         if (isEmpty()){
             System.out.println("The list is empty");
@@ -141,7 +164,9 @@ public class ListaClass {
         }
         length--;
     }
-    
+    /*
+    Imprime la lista
+    */
     public void printList(){
         NodoLista nodo = getHead();
         while (nodo != null){
@@ -150,7 +175,9 @@ public class ListaClass {
         }
         
     }
-    
+    /*
+    Dado un numero entero n, inserta un elemento en la posicion n de la lista.
+    */
     public void InsertIndex(int Element, int index){
         NodoLista nodo = new NodoLista(Element);
         
@@ -172,7 +199,9 @@ public class ListaClass {
         }
         length++;
     }
-    
+    /*
+    Dado un numero entero "n", elimina el elemento numero n de la lista
+    */
     public void DeleteIndex(int index) {
         if (isEmpty()) {
             System.out.println("This list is empty");
@@ -190,7 +219,9 @@ public class ListaClass {
         
     }
     }
-    
+    /*
+    Dado un id, elimina ese elemento de la lista
+    */
     public void deleteId(int id){
         
         NodoLista pointer = getHead();
@@ -203,15 +234,22 @@ public class ListaClass {
         DeleteIndex(index);
         length--;
     }
-
+    /*
+    Devuelve el valor del nombre del usuario
+    */
     public String getName() {
         return name;
     }
-
+    /*
+    Devuelve el id del usuario
+    */
     public int getId() {
         return id;
     }
-
+    
+    /*
+    Devuelve la longitud de la lista
+    */
     public int getLength() {
         return length;
     }
