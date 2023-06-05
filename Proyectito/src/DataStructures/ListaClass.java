@@ -4,8 +4,6 @@
  */
 package DataStructures;
 
-import proyectito.NodoLista;
-
 /**
  *
  * @author Carlos Marcano
@@ -72,6 +70,9 @@ public class ListaClass {
 
     
     public boolean searchElement(int element){
+        if (isEmpty()){
+            return false;
+        }else{
         NodoLista nodo = getHead();
         for (int i = 0; i < getLength(); i++){
             if (nodo == null){return false;}
@@ -81,6 +82,7 @@ public class ListaClass {
         
         return false;
         }
+    }
     
     
     public void insertBegin(int Element, int value){
@@ -148,7 +150,22 @@ public class ListaClass {
         }
         
     }
-    
+    public String[] optdestino(){
+        NodoLista nodo = getHead();
+        String[] arai =  new String[length];
+        int i=0;
+        
+        while (nodo != null){
+            if (nodo!=getHead()){
+            System.out.print(" [" + nodo.getId() + "]pio");
+        arai[i] = Integer.toString(nodo.getId());
+            }
+            nodo = (NodoLista) nodo.getNext();
+            i++;
+    }
+        return arai;
+    }
+            
     public void InsertIndex(int Element, int index){
         NodoLista nodo = new NodoLista(Element);
         

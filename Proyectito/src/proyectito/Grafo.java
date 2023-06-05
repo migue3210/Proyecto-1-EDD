@@ -4,6 +4,8 @@
  */
 package proyectito;
 
+import DataStructures.NodoLista;
+import DataStructures.ListaClass;
 import DataStructures.Queue;
 import DataStructures.Nodo;
 import DataStructures.Stack;

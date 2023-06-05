@@ -5,6 +5,7 @@
  */
 package proyectito;
 
+import DataStructures.NodoLista;
 import Interfaz.Bienvenido20;
 import static Interfaz.Bienvenido20.grafito;
 import java.util.Arrays;
