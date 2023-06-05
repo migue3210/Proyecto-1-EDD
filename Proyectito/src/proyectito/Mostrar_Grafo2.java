@@ -65,20 +65,6 @@ viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
                 
 
             }
-//JOptionPane.showMessageDialog(null, "lo que paso paso, entre tu y yooooo");
-////         
-////        graph.setAutoCreate(false);
-////        graph.setStrict(true);
-////         graph.display().close();
-////viewer.removeView(this);
-//
-//try{
-//    viewer.close();
-//}catch(Exception e){
-//    System.out.println("AHHHHHHHH");
-//    Bienvenido20 bn = new Bienvenido20();
-//}
-
 
     }
     protected String styleSheet

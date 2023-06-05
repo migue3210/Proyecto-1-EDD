@@ -138,12 +138,6 @@ public class Grafo {
     }
 
     public boolean alreadyConnected(int IdUser, int IdConnection) {
-//     if (IdUser == IdConnection) {
-//            
-//            JOptionPane.showMessageDialog(null,"Entrada erronea, no puedes conectar a un usuario consigo mismo");
-// 
-//                        return false;
-//                    } else {return true;}
         if (getUserList()[searchUser(IdUser)].searchElement(IdConnection)) {
             JOptionPane.showMessageDialog(null, "Entrada erronea, el id " + IdUser + " y el id " + IdConnection + " ya estan conectados.");
             return false;
